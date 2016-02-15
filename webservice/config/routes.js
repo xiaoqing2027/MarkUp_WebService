@@ -34,8 +34,10 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
 
+  'post /api/doc' : 'DocumentController.post',
+  'get /api/doc/:id' : 'DocumentController.get',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
