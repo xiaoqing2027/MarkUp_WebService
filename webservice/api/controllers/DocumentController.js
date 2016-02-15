@@ -40,10 +40,28 @@ module.exports = {
 	},
 
 	put: function(req, res, next) {
-
+		var docId = req.param('id');
+		var params = {
+			name: req.param('name'),
+			content: req.param('content')
+		};
+		Document.update(docId,params).exec(function (err, updated){
+			if(err){
+				return next(err);
+			}
+			return res.ok();
+		});
 	},
 
 	delete: function(req, res, next){
+		var docId = req.param('id');
+		Document.destroy(docId).exec(function (err) {
+			if(err) {
+				return res.negotiate(err);
+			}
+
+			return res.ok();
+		});
 
 	},
 
