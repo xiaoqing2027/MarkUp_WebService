@@ -34,6 +34,7 @@ module.exports.routes = {
 
   'post   /api/doc':     'DocumentController.post',
   'get    /api/doc/:id': 'DocumentController.get',
+  'get    /api/doc':     'DocumentController.list',
   'put    /api/doc/:id': 'DocumentController.put',
   'delete /api/doc/:id': 'DocumentController.delete'
   /***************************************************************************

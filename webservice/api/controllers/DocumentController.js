@@ -6,13 +6,22 @@
  */
 
 module.exports = {
+  list: function(req, res, next) {
+    console.log("list request called");
+		Document.find().exec(function(err, docs){
+			if(err) {
+				return next(err);
+			}
+			return res.json(docs);
+		});
+	},
 
 	get: function(req, res, next){
 		var docId = req.param('id');
-		 Document.findById(docId).exec(function(err, docs){
-			 if(err) {
- 				return next(err);
- 			}
+		Document.findById(docId).exec(function(err, docs){
+			if(err) {
+				return next(err);
+			}
 			if(!docs || docs.length === 0) {
 				res.status(404);
 				res.json({
@@ -22,7 +31,7 @@ module.exports = {
 			var doc = docs[0];
 			return res.json(doc);
 
-		 });
+		});
 	},
 
 	post: function(req, res, next) {
