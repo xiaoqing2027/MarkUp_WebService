@@ -19,10 +19,10 @@ module.exports = {
     content:{
       type: 'string',
       required: true
-    },
-    versions: {
-      collection:'version',
-      via: 'doc'
+    }
+    //add a reference to documentation
+    doc:{
+      model:'document'
     }
   }
 };
