@@ -7,17 +7,26 @@
 
 module.exports = {
   list: function(req, res, next) {
-    console.log("list request called");
-		Document.find().exec(function(err, docs){
-			if(err) {
-				return next(err);
-			}
-			return res.json(docs);
-		});
+    var docId = req.param('docid');
+    var versionId = req.param('vid');
+    console.log("version list request called");
+		Document.findById(docId).exec(function(err, docs){
+  			if(err) {
+  				return next(err);
+  			}
+        Version.findById()
+  			return res.json(docs);
+  		});
+    }
+
+    else{
+      error: "doc is not found"
+    }
 	},
 
 	get: function(req, res, next){
 		var docId = req.param('id');
+
 		Document.findById(docId).exec(function(err, docs){
 			if(err) {
 				return next(err);

@@ -33,10 +33,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   'post   /api/doc':     'DocumentController.post',
-  'get    /api/doc/:id': 'DocumentController.get',
+  'get    /api/doc/:docid': 'DocumentController.get',
   'get    /api/doc':     'DocumentController.list',
-  'put    /api/doc/:id': 'DocumentController.put',
-  'delete /api/doc/:id': 'DocumentController.delete'
+  'put    /api/doc/:docid': 'DocumentController.put',
+  'delete /api/doc/:docid': 'DocumentController.delete',
+
+  'get    /api/doc/:docid/version': 'VersionController.list',
+  'get    /api/doc/:docid/version/:vid': 'VersionController.get',
+  'post   /api/doc/:docid/version': 'VersionController.post',
+  'put    /api/doc/:docid/version/:vid': 'VersionController.put',
+  'delete /api/doc/:docid/version/:vid': 'VersionController.delete'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
