@@ -22,7 +22,7 @@ module.exports = {
     },
     versions: {
       collection:'version',
-      via: 'doc'
+      via: 'docu'
     }
   }
 };

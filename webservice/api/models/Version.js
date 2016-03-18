@@ -19,10 +19,10 @@ module.exports = {
     content:{
       type: 'string',
       required: true
-    }
+    },
     //add a reference to documentation
-    doc:{
-      model:'document'
+    docu:{
+      model: 'document'
     }
   }
 };
