@@ -24,7 +24,17 @@ module.exports = {
 					error: "doc is not found"
 				})
 			}
-
+      var versionn =docs[0].versions;
+      // if(versionn == null){
+      //   Version.create({
+      //     name: docs[0].name,
+      //     content:docs[0].content,
+      //     docu:docs[0].id
+      //   }).exec(function(err,version){
+      //     return res.json(version);
+      //   })
+      //
+      // }
       return res.json(docs[0].versions);
   	});
 	},
@@ -46,18 +56,25 @@ module.exports = {
 				})
 			}
       var versionn = docs[0].versions;
-
+      
+      console.log("-------");
+      console.log(version.docu);
       Version.findById(versionId).exec(function(err, versionn ){
+
         if(err) {
   				return next(err);
   			}
-  			if(!docs || docs.length === 0) {
+  			if(!versionn || versionn.length === 0) {
   				res.status(404);
   				res.json({
   					error: "this version is not found"
   				})
   			}
-        var version =versionn[0];
+
+
+        if(!version.docu){
+          error: "this version is not found"
+        }
   			return res.json(version);
       });
 		});
