@@ -94,30 +94,15 @@ module.exports = {
 		var params = {
 			name: req.param('name'),
 			content: req.param('content'),
-      docu:docId
 		};
-    Document.findById(docId)
-    .populate('versions')
-    .exec(function(err, docs){
+
+		Version.update({id: versionId, docu: docId},params).exec(function (err, updated){
 			if(err) {
 				return next(err);
 			}
-			if(!docs || docs.length === 0) {
-				res.status(404);
-				res.json({
-					error: "doc is not found, you cannot update a version of this document"
-				})
-			}
-      var versionn = docs[0].versions;
-
-  		Version.update(versionId,params).exec(function (err, updated){
-  			if(err) {
-  				return next(err);
-  			}
-  			res.status(201);
-  			return res.ok();
-  		});
-    });
+			res.status(201);
+			return res.ok();
+		});
 	},
 
 	delete: function(req, res, next){
