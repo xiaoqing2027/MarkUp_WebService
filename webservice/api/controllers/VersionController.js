@@ -43,41 +43,20 @@ module.exports = {
 		var docId = req.param('docid');
     var versionId = req.param('vid');
 
-		Document.findById(docId)
-    .populate('versions')
-    .exec(function(err, docs){
-			if(err) {
+    Version.find({id: versionId, docu: docId}).exec(function(err, version_objects){
+
+      if(err) {
 				return next(err);
 			}
-			if(!docs || docs.length === 0) {
+			if(!version_objects || version_objects.length === 0) {
 				res.status(404);
-				res.json({
-					error: "doc is not found"
+				return res.json({
+					error: "this version is not found"
 				})
 			}
-      var versionn = docs[0].versions;
-      
-      console.log("-------");
-      console.log(version.docu);
-      Version.findById(versionId).exec(function(err, versionn ){
 
-        if(err) {
-  				return next(err);
-  			}
-  			if(!versionn || versionn.length === 0) {
-  				res.status(404);
-  				res.json({
-  					error: "this version is not found"
-  				})
-  			}
-
-
-        if(!version.docu){
-          error: "this version is not found"
-        }
-  			return res.json(version);
-      });
-		});
+			return res.json(version_objects[0]);
+    });
 	},
 
 	post: function(req, res, next) {
