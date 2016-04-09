@@ -42,7 +42,13 @@ module.exports.routes = {
   'get    /api/doc/:docid/version/:vid': 'VersionController.get',
   'post   /api/doc/:docid/version': 'VersionController.post',
   'put    /api/doc/:docid/version/:vid': 'VersionController.put',
-  'delete /api/doc/:docid/version/:vid': 'VersionController.delete'
+  'delete /api/doc/:docid/version/:vid': 'VersionController.delete',
+
+  // User Authentication
+  'post   /api/auth/login': 'AuthController.login',
+  'post   /api/auth/revoke_token': 'AuthController.revoke_token',
+  'post   /api/auth/register': 'AuthController.register',
+  'post   /api/auth/reset': 'AuthController.reset'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

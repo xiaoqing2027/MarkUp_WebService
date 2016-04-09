@@ -9,19 +9,7 @@
 module.exports = {
 
   attributes: require('waterlock').models.attempt.attributes({
-    user:{
-      model:'user'
-    },
-    successful:{
-      type:'boolean',
-      defaultsTo:false
-    },
-    ip:{
-      type:'string'
-    },
-    port:{
-      type:'string'
-    }
+  
     /* e.g.
     nickname: 'string'
     */

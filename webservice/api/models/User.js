@@ -9,22 +9,26 @@
 module.exports = {
 
   attributes: require('waterlock').models.user.attributes({
-    attempt:{
-      collection: 'attempt',
-      via:'user'
+    firstname: {
+      type: 'string'
     },
-    jsonWebToken:{
-      collection: 'jwt',
-      via:'owner'
+    lastname: {
+      type: 'string'
     },
-    auth:{
-      model:'auth'
+    status: {
+      defaultsTo: 1,
+      type: 'string'
+    },
+    user_type: {
+      defaultsTo: 1,
+      type: 'integer'
     }
+  }),
     /* e.g.
     nickname: 'string'
     */
 
-  }),
+
 
   beforeCreate: require('waterlock').models.user.beforeCreate,
   beforeUpdate: require('waterlock').models.user.beforeUpdate

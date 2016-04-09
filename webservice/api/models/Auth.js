@@ -9,14 +9,25 @@
 module.exports = {
 
   attributes: require('waterlock').models.auth.attributes({
-    user:{
-      model:'user'
+    email: {
+      type: 'email',
+      unique: true,
+      required: true
+    },
+    password: {
+      type: 'string',
+      minLength: 3,
+      required: true
+    },
+    resetToken: {
+      model: 'resetToken'
     }
+}),
+
     /* e.g.
     nickname: 'string'
     */
 
-  }),
 
   beforeCreate: require('waterlock').models.auth.beforeCreate,
   beforeUpdate: require('waterlock').models.auth.beforeUpdate

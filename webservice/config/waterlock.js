@@ -56,10 +56,10 @@ module.exports.waterlock = {
   jsonWebTokens:{
 
     // CHANGE THIS SECRET
-    secret: 'this is my secret',
+    secret: 'oijsdfjoidsjdfsjojodfsjodfsjoiiojsdf',
     expiry:{
       unit: 'days',
-      length: '7'
+      length: '100'
     },
     audience: 'app name',
     subject: 'subject',
@@ -71,7 +71,7 @@ module.exports.waterlock = {
     // express session object and attach the
     // user to it during the hasJsonWebToken
     // middleware
-    stateless: false,
+    stateless: true,
 
     // set the name of the jwt token property
     // in the JSON response
@@ -84,7 +84,7 @@ module.exports.waterlock = {
     // configure whether or not to include
     // the user in the respnse - this is useful if
     // JWT is the default response for succesfull login
-    includeUserInJwtResponse: false
+    includeUserInJwtResponse: true
   },
 
   // Post Actions
@@ -103,7 +103,7 @@ module.exports.waterlock = {
       // obj - {controller: 'blog', action: 'post'}
       // string - 'custom json response string'
       // default - 'default'
-      success: 'default',
+      success: 'jwt',
 
       // This can be any one of the following
       //
