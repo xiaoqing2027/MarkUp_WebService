@@ -46,9 +46,21 @@ module.exports.routes = {
 
   // User Authentication
   'post   /api/auth/login': 'AuthController.login',
-  'post   /api/auth/revoke_token': 'AuthController.revoke_token',
+  'post   /api/auth/logout': 'AuthController.logout',
   'post   /api/auth/register': 'AuthController.register',
-  'post   /api/auth/reset': 'AuthController.reset'
+  'post   /api/auth/reset': 'AuthController.reset',
+  'post   /api/auth/revoke_token': 'AuthController.revoke_token',
+
+  //user doc
+  'get    /api/:userid/docs/:docid': 'DocumentController.get_user',
+  'get    /api/:userid/docs':     'DocumentController.list_user',
+
+  //user version
+  'get    /api/:userid/docs/:docid/version': 'VersionController.list_user',
+  'get    /api/:userid/docs/:docid/version/:vid': 'VersionController.get_user',
+  'post   /api/:userid/docs/:docid/version': 'VersionController.post_user',
+  'put    /api/:userid/docs/:docid/version/:vid': 'VersionController.put_user',
+  'delete /api/:userid/docs/:docid/version/:vid': 'VersionController.delete_user',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

@@ -22,6 +22,15 @@ module.exports = {
     user_type: {
       defaultsTo: 1,
       type: 'integer'
+    },
+    documents:{
+      collection:'document',
+      via:'users',
+      dominant:true
+    },
+    versions:{
+      collection:'version',
+      via:'user'
     }
   }),
     /* e.g.

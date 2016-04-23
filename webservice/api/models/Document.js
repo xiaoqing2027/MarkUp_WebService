@@ -23,6 +23,11 @@ module.exports = {
     versions: {
       collection:'version',
       via: 'docu'
+    },
+    users:{
+      collection:'user',
+      via:'documents'
     }
+
   }
 };

@@ -18,9 +18,25 @@ module.exports = {
 		});
 	},
 
-	get: function(req, res, next){
+  list_user: function(req, res, next) {
+
+    var userId = req.param('userid');
+    console.log(userId);
+		Document.find()
+    .populate('versions',{user: userId })
+    .exec(function(err, docs){
+      console.log("list_user request called");
+			if(err) {
+				return next(err);
+			}
+			return res.json(docs);
+		});
+	},
+
+  get_user: function(req, res, next){
+    var userId = req.param('userid');
 		var docId = req.param('docid');
-		Document.findById(docId)
+		Document.find({id: docId, user: userId})
     .populate('versions')
     .exec(function(err, docs){
 			if(err) {
@@ -32,10 +48,28 @@ module.exports = {
 					error: "doc is not found"
 				});
 			}
-    
 			var doc = docs[0];
 			return res.json(doc);
+		});
+	},
 
+
+	get: function(req, res, next){
+		var docId = req.param('docid');
+		Document.findById(docId)
+    .populate('versions', {share: 1 })
+    .exec(function(err, docs){
+			if(err) {
+				return next(err);
+			}
+			if(!docs || docs.length === 0) {
+				res.status(404);
+				res.json({
+					error: "doc is not found"
+				});
+			}
+			var doc = docs[0];
+			return res.json(doc);
 		});
 	},
 
@@ -76,8 +110,6 @@ module.exports = {
 
 			return res.ok();
 		});
-
 	},
-
 
 };

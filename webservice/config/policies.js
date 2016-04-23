@@ -49,8 +49,34 @@ module.exports.policies = {
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
 
-  DocumentController: {
-    list: ['hasJsonWebToken'],
+  // DocumentController: {
+  //   list: ['hasJsonWebToken'],
+  // },
 
+  VersionController: {
+    post: ['hasJsonWebToken'],
+    put:['hasJsonWebToken'],
+    post_user: ['hasJsonWebToken'],
+    put_user:['hasJsonWebToken'],
+    delete_user: ['hasJsonWebToken'],
+    get_user:['hasJsonWebToken'],
+    list_user:['hasJsonWebToken'],
   },
+
+  DocumentController: {
+    get_user:['hasJsonWebToken'],
+    list_user:['hasJsonWebToken'],
+  },
+
+
+
+
+
+
+
+
+
+
+
+
 };

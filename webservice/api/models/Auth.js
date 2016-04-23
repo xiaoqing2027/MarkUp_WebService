@@ -22,12 +22,11 @@ module.exports = {
     resetToken: {
       model: 'resetToken'
     }
+    // versions: {
+    //   collection:'version',
+    //   via: 'author'
+    // }
 }),
-
-    /* e.g.
-    nickname: 'string'
-    */
-
 
   beforeCreate: require('waterlock').models.auth.beforeCreate,
   beforeUpdate: require('waterlock').models.auth.beforeUpdate

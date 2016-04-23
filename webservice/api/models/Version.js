@@ -20,9 +20,16 @@ module.exports = {
       type: 'string',
       required: true
     },
+    share:{
+      defaultsTo: 1,
+      type: 'string'
+    },
     //add a reference to documentation
     docu:{
       model: 'document'
+    },
+    user:{
+      model:'user'
     }
   }
 };

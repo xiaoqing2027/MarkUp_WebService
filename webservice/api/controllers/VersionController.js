@@ -11,13 +11,11 @@ module.exports = {
     console.log("version list request called");
 
     Document.findById(docId)
-    .populate('versions')
+    .populate('versions',{share: 1 })
     .exec(function(err, docs){
-
 			if(err) {
 				return next(err);
 			}
-
 			if(!docs || docs.length === 0) {
 				res.status(404);
 				res.json({
@@ -25,18 +23,48 @@ module.exports = {
 				})
 			}
       var versionn =docs[0].versions;
-      // if(versionn == null){
-      //   Version.create({
-      //     name: docs[0].name,
-      //     content:docs[0].content,
-      //     docu:docs[0].id
-      //   }).exec(function(err,version){
-      //     return res.json(version);
-      //   })
-      //
-      // }
       return res.json(docs[0].versions);
   	});
+	},
+
+  list_user: function(req, res, next) {
+    var userId = req.param('userid');
+    var docId = req.param('docid');
+
+    // Document.find({user: userId})
+    // .populate('versions',{user: userId})
+    Version.find({docu:docId, user: userId})
+    .exec(function(err, versions){
+      console.log("version list_user request called");
+			if(err) {
+				return next(err);
+			}
+      if(versions == null){
+        return "not exists this document"
+      }
+      return res.json(versions);
+  	});
+	},
+
+  get_user: function(req, res, next){
+    var userId = req.param('userid');
+		var docId = req.param('docid');
+    var versionId = req.param('vid');
+    console.log("VersionController.get_user_version");
+    Version.find({id: versionId, docu: docId, user: userId}).exec(function(err, version_objects){
+
+      if(err) {
+				return next(err);
+			}
+			if(!version_objects || version_objects.length === 0) {
+				res.status(404);
+				return res.json({
+					error: "this version is not found"
+				})
+			}
+
+			return res.json(version_objects[0]);
+    });
 	},
 
 	get: function(req, res, next){
@@ -88,12 +116,62 @@ module.exports = {
     });
 	},
 
+  post_user: function(req, res, next) {
+    var userId = req.param('userid');
+    var docId = req.param('docid');
+		var params = {
+			name: req.param('name'),
+			content: req.param('content'),
+      docu:docId,
+      user:userId
+		};
+
+		Version.create(params).exec(function(err, version){
+			if(err) {
+				return next(err);
+			}
+
+      // Document.put({id: docId}, {users:userId}).exec(function (err, updated){
+  		// 	if(err) {
+  		// 		return next(err);
+  		// 	}
+  		// 	res.status(201);
+      //   console.log("aaaaa");
+      //   console.log(updated);
+  		// 	res.ok();
+  		// });
+
+      console.log("version_user post request called");
+			return res.json(version);
+		});
+	},
+
+  put_user: function(req, res, next) {
+    var userId = req.param('userid');
+		var docId = req.param('docid');
+    var versionId = req.param('vid');
+		var params = {
+			name: req.param('name'),
+			content: req.param('content'),
+      share: req.param('share'),
+		};
+
+		Version.update({id: versionId, docu: docId, user: userId},params).exec(function (err, updated){
+			if(err) {
+				return next(err);
+			}
+			res.status(201);
+			return res.ok();
+		});
+	},
+
 	put: function(req, res, next) {
 		var docId = req.param('docid');
     var versionId = req.param('vid');
 		var params = {
 			name: req.param('name'),
 			content: req.param('content'),
+      share: req.param('share'),
 		};
 
 		Version.update({id: versionId, docu: docId},params).exec(function (err, updated){
@@ -131,5 +209,17 @@ module.exports = {
         return res.ok();
       });
   	});
+	},
+
+  delete_user: function(req, res, next){
+    var userId = req.param('userid');
+		// var docId = req.param('docid');
+    var versionId = req.param('vid');
+    Version.destroy({id: versionId, user: userId}).exec(function (err) {
+      if(err) {
+        return res.negotiate(err);
+      }
+      return res.ok();
+    });
 	},
 };
