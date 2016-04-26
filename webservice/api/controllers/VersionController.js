@@ -39,9 +39,6 @@ module.exports = {
 			if(err) {
 				return next(err);
 			}
-      if(versions == null){
-        return "not exists this document"
-      }
       return res.json(versions);
   	});
 	},

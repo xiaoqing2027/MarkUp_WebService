@@ -49,7 +49,7 @@ module.exports.routes = {
   'post   /api/auth/logout': 'AuthController.logout',
   'post   /api/auth/register': 'AuthController.register',
   'post   /api/auth/reset': 'AuthController.reset',
-  'post   /api/auth/revoke_token': 'AuthController.revoke_token',
+  //'post   /api/auth/revoke_token': 'AuthController.revoke_token',
 
   //user doc
   'get    /api/:userid/docs/:docid': 'DocumentController.get_user',

@@ -21,7 +21,7 @@ module.exports = {
       required: true
     },
     share:{
-      defaultsTo: 1,
+      defaultsTo: 0,
       type: 'string'
     },
     //add a reference to documentation

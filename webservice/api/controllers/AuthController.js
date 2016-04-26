@@ -92,16 +92,23 @@ module.exports = require('waterlock').waterlocked({
 
   },
 
-  revoke_token: function(req, res) {
-    var token = req.headers.access_token;
+  logout: function (req, res){
 
-    Jwt.update({token: token}, {revoked: true}).exec(function(err, updated){
-      if (err) {
-        return res.serverError(err);
-      }
-      return res.status(200).json({info: "Token revoked."});
-    });
-  }
+      waterlock.cycle.logout(req, res);
+
+      //res.send('logout successful');
+  },
+
+  // revoke_token: function(req, res) {
+  //   var token = req.headers.access_token;
+  //
+  //   Jwt.update({token: token}, {revoked: true}).exec(function(err, updated){
+  //     if (err) {
+  //       return res.serverError(err);
+  //     }
+  //     return res.status(200).json({info: "Token revoked."});
+  //   });
+  // }
 
   // reset: use default reset handler from waterlock-local-auth
 
