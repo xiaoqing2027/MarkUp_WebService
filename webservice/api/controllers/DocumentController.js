@@ -9,7 +9,7 @@ module.exports = {
   list: function(req, res, next) {
     console.log("list request called");
 		Document.find()
-    .populate('versions')
+    //.populate('versions')
     .exec(function(err, docs){
 			if(err) {
 				return next(err);
@@ -74,11 +74,17 @@ module.exports = {
 	},
 
 	post: function(req, res, next) {
+    console.log(req.param('name'));
 		var params = {
 			name: req.param('name'),
+
 			content: req.param('content')
 		};
-		Document.create(params, function(err, doc){
+
+
+
+		Document.create(params).exec(function(err, doc){
+      console.log(doc);
 			if(err) {
 				return next(err);
 			}

@@ -54,8 +54,8 @@ module.exports.policies = {
   // },
 
   VersionController: {
-    post: ['hasJsonWebToken'],
-    put:['hasJsonWebToken'],
+    //post: ['hasJsonWebToken'],
+    //put:['hasJsonWebToken'],
     post_user: ['hasJsonWebToken'],
     put_user:['hasJsonWebToken'],
     delete_user: ['hasJsonWebToken'],

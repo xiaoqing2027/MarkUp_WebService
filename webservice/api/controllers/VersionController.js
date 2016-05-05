@@ -139,6 +139,7 @@ module.exports = {
   		// });
 
       console.log("version_user post request called");
+      console.log(version+"");
 			return res.json(version);
 		});
 	},
