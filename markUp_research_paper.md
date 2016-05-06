@@ -222,6 +222,7 @@ For model code in MarkUp, you can find corresponding code in path  MarkUP_WebSer
 According to functionalities of MarkUp, I designed URL that users enter in the browser. These URLs map to some specific physical file mapped to a directory on the web server which we call the virtual directory. When user sends requests, controller in backend processes corresponding requests via URL. The figure 5 shows the logic clearly.
 
 <center>![](./url.png)<center>
+
 <center> figure 5<center>
 
 I listed all URLs I design in MarkUp below.
@@ -277,19 +278,139 @@ I listed all URLs I design in MarkUp below.
  'get    /api/doc/:docid/version/:vid': 'VersionController.get',
  ```
  For this more complicated URL, in addition to /api/doc, there have :docid and :vid. :docid and :vid are parameters that are passed into get function in VersionController in order to do some logic operations.
+
 #### Controller Design
+Controller is responsible for processing incoming requests, handling input, saving data and sending
+a response to send back to the client. In sails.js, web server
+will normally map incoming URL requests directly to files on the server. In controller class, processing
+incoming requests will map corresponding RESTful API method to processing login operations.
+
+If you want to see controller code in MarkUp, you can find corresponding code in path  MarkUP_WebSerivce/webservice/api/controllers.
+
 #### Authentication
+For authentication, I used WaterLock to check if user log in or not. WaterLock users
+the req.session express object to hold various information about user. Specific implementation
+is in MarkUP_WebSerivce. Here, I just want to describe logic about how to implement authentication.
+Without authentication, after user sends request from browser, URL will map restful API method in corresponding controller,
+The way I add authentication functionality is that incoming requests from user have to be checked by WaterLock
+before incoming requests arrive at controller. The logic is showed in figure 6.
+
+<center>![](./auth_logic.png)<center>
+
+<center> figure 5<center>
+
+If there have token in client-side, request will go to controller to execute corresponding
+operations, otherwise, user has to login first. If user logs in successfully, server will sent token to client-side
+, client-side will store token in browser or other user computer and then send request again to server, otherwise,
+user has to register and back to login. In client-side, it is different between usual authentication method and WaterLock,
+WaterLock method puts token in header, in HTTP requests, you could implement it(add token to header) by set perperty
+About how to set bar to check in server, I will explain it via code.  
+
+The code section below is part of authentication in backend, you could find it in MarkUP_WebSerivce/config/policies.
+This section means, if you want to access post_user, put_user, delete_user, get_user and list_user methods in VersionController,
+you have to do authentication. It is same with DocumentController part.
+
+However, you can see, there are only part of methods in controllers to check if user logged in or not.
+Why I don't set all methods in controllers to do authentication? Reason is simple, for reader, they can
+access parts of information in MarkUp without logging in.
+
+```
+VersionController: {
+  post_user: ['hasJsonWebToken'],
+  put_user:['hasJsonWebToken'],
+  delete_user: ['hasJsonWebToken'],
+  get_user:['hasJsonWebToken'],
+  list_user:['hasJsonWebToken'],
+},
+
+DocumentController: {
+  get_user:['hasJsonWebToken'],
+  list_user:['hasJsonWebToken'],
+},
+```
 
 ## Front-end Design
 
-  *Model and ORM
-  *Controller
-  *Router
-  *view --android studio development
-    >activity
-    >sharedProference
-    >UI
+
+## Front-end Design
+I mentioned in previous section, android device is viewed as view part in MVC framework,
+so android development means front-end development. In this section, I won't introduce so much about
+how to create layout and Activity
+
+#### Layout and Activity
+
+When you make an Android Application, the first thing you will do is create an activity.
+These are where all the action happens, because they are where all action happens,
+because they are the screens that allow the user to interact with your app.
+
+Another incredibly important part of building an Android application is creating a layout that the users of the
+application interact with.Android Studio offers an advanced layout editor that allows you to drag-and-drop
+widgets into your layout and preview your layout while editing the XML.
+Within the layout editor, you can switch between the Text view, where you edit
+the XML file as text, and the Design view. Just click the appropriate tab at the
+bottom of the window to display the desired editor. If you want to know more, you
+could go to <http://developer.android.com/sdk/installing/studio-layout.html>.
+
+Here, I won't say a lot of details about how to create an android application. If you have
+taken ITMD555, it is easy to understand MarkUp.
+
+#### AsyncTask
+
+AsyncTask is an abstract class provided by Android which helps us to use UI thread properly.
+This class allows us to perform background operations and show its result on the UI thread
+without having to manipulate threads.
+
+Android implements single thread model and whenever an application is launched,
+a thread is created. Assuming we are doing network operation on a button click in our application.
+On button click a request would be made to the server and response will be awaited. Due to single
+thread model of android, till the time response is awaited our screen is non-responsive. So we should avoid
+performing long running operations on the UI thread. This includes
+file and network access. To overcome this, we can create new thread and implement run method
+to perform this network call, so UI remains responsive.
+
+But since Android follows single thread model and Android UI toolkit is not thread safe,
+so if there is a need to make some change to the UI based on the result of the operations
+performed, then this approach may lead some issues. So the android framework has given
+a very good patten which is enveloped into AsyncTask.
+
+In MarkUp, there is a need to communicate with the server and get data from it, so
+I used AsyncTask to perform many times long running operations on the UI thread, otherwise,
+user experience will be very bad. For every AsyncTask in MarkUp app, it will map route I designed.
+
+AsyncTask has four steps:
+* doInBackground: Code performing long running operations goes in this method. when
+onclick method is executed in click of button, it calls execute method which accepts parameters
+and automatically calls doInBackground method with the parameters passed.
+* onPostExecute: This method is called after doInBackground method completes processing. Result
+form doInBackground is passed to this method.
+* onPreExecute: This method is called before doInBackground method is called.
+* onPrograssUpdate: This method is invoke by calling publish progress anytime from doInBackground
+call this method.
+
+
+
+#### SharedPreference
+
+Actually, android provides several options for user to save persistent application data.
+* SharedProference - store private primitive data in key-value pairs
+* Internal Storage - store private data on the device memory
+* External Storage - store public data on the shared external storage
+* SQLite Database - store structured data in a private database
+* Network Connection - Store data on the web with your own network server
+
+Considered this application specific needs, I choose sharedProference because MarkUp
+only needs to save small collection of key-values. For more details, please access to
+<http://www.compiletimeerror.com/2015/02/android-shared-preferences-example-and-tutorial.html#.Vy0QpKMrJnY>
+
+#### MarkDown libraries
+
+The important part in this app is converting unstructured text into formatted text. I used
+MarkDownView library to implement this functionality.This library is very well and easy to learn, let's see what's MarkDownView. MarkdownView (Markdown For Android) is an Android library that helps you display Markdown text or files (local/remote) as formmated HTML, and style the output using CSS.
+The MarkdownView itself extends Android webview and adds the necessary logic to parse Markdown (using MarkdownJ) and display the output HTML on the view.  
+
+## Achievement
 
 ## Challenge
+
 ## Work in the future
 ## Conclusion
