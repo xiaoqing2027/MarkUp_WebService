@@ -1,24 +1,26 @@
-# MarkUp Research Paper
+# <center> MarkUp Research Paper<center>
 
 ## Background
 
 MarkUp is one of subproject of Project Factor. Project Factor was initiated to build a suite of applications that would
-automatically generate text transcripts from IIT course videos using open-source software tools. 
-Project Factor is divied by three parts:
-* Project Convert 
-* Project Window Pane 
+automatically generate text transcripts from IIT course videos using open-source software tools.
+Project Factor is divided by three parts:
+
+* Project Convert
+* Project Window Pane
 * Project MarkUp
 
 ## Introduction
 
-For project Convert and project Window Pane, they convert video or audio( such as a speech) into text with timestamp using machine translator, in other words, convert vocal speech into unformated text using libraries. Project MarkUp is to handle those unstructured text. About project Convert and project Window Pane, please refer to other teammates' research paper. Now let's focus on my project - MarkUp.
+For project Convert and project Window Pane, they convert video or audio( such as a speech) into text with timestamp using machine translator, in other words, convert vocal speech into unformatted text using libraries. Project MarkUp is to handle those unstructured text. About project Convert and project Window Pane, please refer to other teammates' research paper. Now let's focus on my project - MarkUp.
 
-MarkUp allows a user to enter a drag and drop application and mark unstructured text via a simple GUI interface. 
+MarkUp allows a user to enter a drag and drop application and mark unstructured text via a simple GUI interface.
 
 The Goal of MarkUp:
+
 * Convert unformatted text into formatted text
 * Build user Content Management System
-* Formatted text can be rendred into a DocBook or HTMLBook format which allows for export to PDF, HTML and even ePub
+* Formatted text can be rendered into a DocBook or HTMLBook format which allows for export to PDF, HTML and even ePub
 * PDF and HTML formats can be printed too - making read -time book
 
 ## Functionalities of MarkUp
@@ -26,7 +28,7 @@ The Goal of MarkUp:
 As an independent study for a course in one semester, consider that I only have three months to do this project, I picked up two goals of MarkUp to implement. Functionalities of MarkUp I have implemented is following:
 
 * User authentication
-* Account management 
+* Account management
 * Multi-user synchronous editing capabilities
 * All functions performed using Android touch based interface targeting tablets or phone
 * All user markup saved and referenced from a common database
@@ -37,7 +39,7 @@ Next, I will explain how I implement MarkUp project. Hope students who want to g
 ## Installation
 ### Software Install
 
-For software part, there have two parts, backend and frontend. So I will introduce installation from these two aspects.
+For software part, there have two parts, backend and front end. So I will introduce installation from these two aspects.
 ##### Sails.js Version
 0.12.0
 ##### Sails.js Installation
@@ -67,7 +69,9 @@ On some Windows systems, the launcher script does not find where the JDK is inst
 You can go to <http://developer.android.com/sdk/installing/index.html> see more android studio installation details.
 
 ##### Android Studio Configuration
+
 This is my build.gradle file. There have compileSdk, buildTools and dependencies information.
+
 ```
 apply plugin: 'com.android.application'
 android {
@@ -97,6 +101,7 @@ dependencies {
     compile 'us.feras.mdv:markdownview:1.1.0'
 }
 ```
+
 ### Hardware Tools
 
 You can user any android platform version higher than android 4.0 API 15. I use Nexus 7 API 22.
@@ -107,20 +112,176 @@ I always use Postman to debug backend, which takes less time than debug using an
 ##### Install Postman
 Postman now offers a Mac App. Unlike the Chrome app, the Mac app is packaged with add-ons that make request capturing and cookie handling seamless.
 
-To install go to <https://www.getpostman.com/apps>, and click 'Get Mac App'.The download should take a few minutes, depending on your internet connection. Once you've downloaded the app, you can install and launch Postman like any other Mac app. 
+To install go to <https://www.getpostman.com/apps>, and click 'Get Mac App'.The download should take a few minutes, depending on your internet connection. Once you've downloaded the app, you can install and launch Postman like any other Mac app.
 ## Architecture of MarkUp
-After gathering information or requirements of MarkUp and understand MarkUp, I figured out Functionality of MarkUp and main service of MarkUp. Achitechure of MarkUp is below:
-![Achitechture](images/architecture.jpg)
+After gathering information or requirements of MarkUp and understand MarkUp, I figured out Functionality of MarkUp and main service of MarkUp. Architechure of MarkUp is below:
+
+![](./architec.png)
+<center> figure 2<center>
+
+
+Raw data from Speech in above graph is that unstructured text that is converted from video or audio using machine translator.
+
+Web Service is serve-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four service:
+
+* Authentication
+* Restful service
+* File convert service
+* Android Device
+
+I will simply explain each service next.
+
+Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
+
+Restful Service is
+
 
   * Authentication
-  
-  Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
-  * Restful service
 
-https://github.com/RestCheatSheet/api-cheat-sheet#api-design-cheat-sheet
-  >File convert service
-  >Android Device
->Design of MarkUp
+  Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
+  * RESTful service
+  REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service.
+
+  A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.
+
+  * File Convert Service
+  File Convert Service is to covert markdown format to other document format, such as PDF, ePub, by using some libraries(panddoc).
+
+  * Android Device
+
+  Android Device is serve as an GUI interface. After server processed data, android device is used to render or display data in a great UI.
+
+## Flow chart of MarkUp
+
+According to MarkUp Functionalities I implemented, I design a flow chart below to show MarkUp app clearly.
+
+![](./Flow_chart.png)
+<center> figure 2<center>
+
+Before introduce flow-chart above, let's assume that we are using IIT blackboard online video database now. For every class video, we convert speech into text, then those unstructured text translated by machine translator is put in database. Here, I defined every video text as document. In MarkUp, my idea is to let user edit unstructured text to become user own modified document. So let's call those documents translated from machine translator as original version of document, lets's call those document modified by users as modified version of document. If one video document is modified by Multi-users, these users create many versions of this document. So one document may have lots of versions.
+
+
+For every  As above flow-chart graph shows, there have three user type, Admin, User and Reader.
+
+Admin is in charge of manipulating database that store unstructured data, in other words, admin is to add document into database. In IIT blackboard online video, after machine translator finish translating, admin has to check if there have new document and then adds new translated documents into the database that stores unstructured data. Maybe we can implement functionality to add new document into database automatically. In flow-chart, you can see, admin is in charge of managing document. Admin can do:
+
+* Admin can add new documents to database
+* Admin has right to decide if new documents could be put in database
+* Admin can update/delete documents in database
+
+In IIT example, user is student. User needs to register and login MarkUp app to enter MarkUp
+app. Things Users could do in MarkUp app are in below:
+* User can access all documents and all shared versions in database
+* User can edit any version they want to  
+* User can create new version by saving edit exist versions of document
+* User can access his own documents and all shared versions in his profile.
+* User can share/unshare their own versions in their profiles
+* User can delete their own versions in their profiles
+
+Shared versions are versions that users shared their own versions of documents in their profile. After user shares their own version for one document, all readers and other users can access this shared version of this document. If user doesn't share their own version of one document, all readers and other users cannot access your unshared version of one document. One more thing, in model design, all versions of document state is unshared by default.
+
+For readers, reader only can access all document, their original version of document and their shared version of document. In addition, readers can read and edit versions of documents. However, readers cannot save versions of documents that they edit unless they register an account and login. Readers could do:
+* Readers can access all documents and all shared versions in database
+* Reader can edit any versions of documents they want to, but cannot save versions they edit
+
+## Backend Design
+
+After discussing MarkUp architecture and whole flow-chart, now let's see how to implement those functionality of different user-type.
+
+I used sails.js as web framework in MarkUp backend. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. But in his project, I used android device to be my view part. Here, I will introduce models and controller, explain android part in frontend section.
+
+#### Model Design
+
+According to explanation above,it is easy to know that, at least, there should
+have a model user and a model document in content management system because it is user
+to manipulate data(document). In addition, I also designed a version model. The reason I did this is to solve the problem that Multi-user could edit same document in the same time in another way. At the same time, I also implement version control functionality using different timestamp in the view of user.
+In order to describe model and their relationships clearly, I used E-R diagram to show attributes of models and relationship between different model.
+
+An ER model is composed of entity types and specifies relationships that can exist between instances of those entity types. ER model is an abstract data model that defines a data or information structure that can be implemented in a database, typically a relational database. Rectangle represents entity, isometric square represents relation between models.
+Ellipse represents attributes of model.
+
+<center>![](./e-r.png)<center>
+<center> figure 3<center>
+
+As figure 3 shows, there have three models, document, version and user. Association(relationship) between models is following:
+
+* Document : Version = 1: many
+* User : Version = 1 : many
+* User : Document = many : many
+
+In addition to these three basic model, there is one more model, auth. Auth is to check if authorized user is logged or use type is user or reader. E-R diagram is showed below.
+
+<center>![](./auth.png)<center>
+<center> figure 4<center>
+
+For model code in MarkUp, you can find corresponding code in path  MarkUP_WebSerivce/webservice/api/models.
+
+
+#### Router Design
+
+According to functionalities of MarkUp, I designed URL that users enter in the browser. These URLs map to some specific physical file mapped to a directory on the web server which we call the virtual directory. When user sends requests, controller in backend processes corresponding requests via URL. The figure 5 shows the logic clearly.
+
+<center>![](./url.png)<center>
+<center> figure 5<center>
+
+I listed all URLs I design in MarkUp below.
+
+###### Document:
+```
+'post   /api/doc':     'DocumentController.post',
+'get    /api/doc':     'DocumentController.list',
+'put    /api/doc/:docid': 'DocumentController.put',
+'delete /api/doc/:docid': 'DocumentController.delete',
+```
+###### Version:
+```
+'get    /api/doc/:docid/version': 'VersionController.list',
+'get    /api/doc/:docid/version/:vid': 'VersionController.get',
+'post   /api/doc/:docid/version': 'VersionController.post',
+'put    /api/doc/:docid/version/:vid': 'VersionController.put',
+'delete /api/doc/:docid/version/:vid': 'VersionController.delete',
+```
+###### User Authentication:
+ ```
+'post   /api/auth/login': 'AuthController.login',
+'post   /api/auth/logout': 'AuthController.logout',
+'post   /api/auth/register': 'AuthController.register',
+```
+###### User_document:
+```
+'get    /api/:userid/docs':     'DocumentController.list_user',
+```
+###### User_version:
+ ```
+'get    /api/:userid/docs/:docid/version': 'VersionController.list_user',
+'get    /api/:userid/docs/:docid/version/:vid': 'VersionController.get_user',
+'post   /api/:userid/docs/:docid/version': 'VersionController.post_user',
+'delete /api/:userid/docs/:docid/version/:vid': 'VersionController.delete_user',
+ ```
+
+ For URLs above, I explain them in order that you can understand well.
+ First part, document is just comment, which represents these URLS in this part
+ are handle document manipulation. So on so forth for next three parts.
+
+ Now, let me explain my URL, for example:
+
+ ```
+ 'get    /api/doc':     'DocumentController.list',
+ ```
+ For this URL, get is restful API, /api/doc is url user enters in the browser,
+ DocumentController.list is list method in DocumentController. In other words,
+ when user enters ip:port/api/doc in browser, backend will find list function in
+ DocumentController to do login operations. Get is Restful API type of list function.
+
+ ```
+ 'get    /api/doc/:docid/version/:vid': 'VersionController.get',
+ ```
+ For this more complicated URL, in addition to /api/doc, there have :docid and :vid. :docid and :vid are parameters that are passed into get function in VersionController in order to do some logic operations.
+#### Controller Design
+#### Authentication
+
+## Front-end Design
+
   *Model and ORM
   *Controller
   *Router
@@ -128,8 +289,7 @@ https://github.com/RestCheatSheet/api-cheat-sheet#api-design-cheat-sheet
     >activity
     >sharedProference
     >UI
->Flow Chart of MarkUp
-  >explanation of flow chart
->work in the future
->Challenge
->conclusion
+
+## Challenge
+## Work in the future
+## Conclusion
