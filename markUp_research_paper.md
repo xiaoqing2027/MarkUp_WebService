@@ -2,8 +2,7 @@
 
 ## Background
 
-MarkUp is one of subproject of Project Factor. Project Factor was initiated to build a suite of applications that would
-automatically generate text transcripts from IIT course videos using open-source software tools.
+MarkUp is one of subproject of Project Factor. Project Factor was initiated to build a suite of applications that would automatically generate text transcripts from IIT course videos using open-source software tools.
 Project Factor is divided by three parts:
 
 * Project Convert
@@ -37,8 +36,8 @@ As an independent study for a course in one semester, consider that I only have 
 Next, I will explain how I implement MarkUp project. Hope students who want to go on my work pick up my work easily.
 
 ## Installation
-### Software Install
 
+### Software Install
 For software part, there have two parts, backend and front end. So I will introduce installation from these two aspects.
 ##### Sails.js Version
 0.12.0
@@ -113,16 +112,21 @@ I always use Postman to debug backend, which takes less time than debug using an
 Postman now offers a Mac App. Unlike the Chrome app, the Mac app is packaged with add-ons that make request capturing and cookie handling seamless.
 
 To install go to <https://www.getpostman.com/apps>, and click 'Get Mac App'.The download should take a few minutes, depending on your internet connection. Once you've downloaded the app, you can install and launch Postman like any other Mac app.
+
+## Run MarkUp application
+
+ After finishing installation, you could git pull MarkUp project form my github account. Before you run MarkUp , there have two thing to modify. Firstly, you open bash in your computer, then input ifconfig to find inet address. Secondly, you should find local.js via path MarkUP_WebSerivce/webservice/config, replace host by new inet address. Thirdly, open your android studio, then find Strings.xml via path ./app/res/values, you also need to replace <string name="ip_address">http://old_inet_address:1337</string> by new inet address.
+
+
 ## Architecture of MarkUp
-After gathering information or requirements of MarkUp and understand MarkUp, I figured out Functionality of MarkUp and main service of MarkUp. Architechure of MarkUp is below:
+After gathering information or requirements of MarkUp and understand MarkUp, I figured out Functionality of MarkUp and main service of MarkUp. Architecture of MarkUp is showed in figure 1:
 
 ![](./architec.png)
-<center> figure 2<center>
+
+<center> figure 1<center>
 
 
-Raw data from Speech in above graph is that unstructured text that is converted from video or audio using machine translator.
-
-Web Service is serve-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four service:
+Raw data from Speech in above graph is unstructured text that is converted from video or audio using machine translator. Web Service is serve-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four services:
 
 * Authentication
 * Restful service
@@ -133,19 +137,15 @@ I will simply explain each service next.
 
 Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
 
-Restful Service is
-
-
   * Authentication
 
   Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
-  * RESTful service
-  REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service.
 
-  A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.
+  * RESTful service
+  REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service. A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.
 
   * File Convert Service
-  File Convert Service is to covert markdown format to other document format, such as PDF, ePub, by using some libraries(panddoc).
+  File Convert Service is to covert markdown format to other document format, such as PDF, ePub, by using some libraries(pandoc).
 
   * Android Device
 
@@ -156,6 +156,7 @@ Restful Service is
 According to MarkUp Functionalities I implemented, I design a flow chart below to show MarkUp app clearly.
 
 ![](./Flow_chart.png)
+
 <center> figure 2<center>
 
 Before introduce flow-chart above, let's assume that we are using IIT blackboard online video database now. For every class video, we convert speech into text, then those unstructured text translated by machine translator is put in database. Here, I defined every video text as document. In MarkUp, my idea is to let user edit unstructured text to become user own modified document. So let's call those documents translated from machine translator as original version of document, lets's call those document modified by users as modified version of document. If one video document is modified by Multi-users, these users create many versions of this document. So one document may have lots of versions.
@@ -188,7 +189,7 @@ For readers, reader only can access all document, their original version of docu
 
 After discussing MarkUp architecture and whole flow-chart, now let's see how to implement those functionality of different user-type.
 
-I used sails.js as web framework in MarkUp backend. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. But in his project, I used android device to be my view part. Here, I will introduce models and controller, explain android part in frontend section.
+I used sails.js as web framework in MarkUp backend. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. But in his project, I used android device to be my view part. Here, I will introduce models and controller, explain android part in front-end section.
 
 #### Model Design
 
@@ -201,6 +202,7 @@ An ER model is composed of entity types and specifies relationships that can exi
 Ellipse represents attributes of model.
 
 <center>![](./e-r.png)<center>
+
 <center> figure 3<center>
 
 As figure 3 shows, there have three models, document, version and user. Association(relationship) between models is following:
@@ -260,7 +262,7 @@ I listed all URLs I design in MarkUp below.
 'delete /api/:userid/docs/:docid/version/:vid': 'VersionController.delete_user',
  ```
 
- For URLs above, I explain them in order that you can understand well.
+ For routers above, I explain them in order that you can understand well.
  First part, document is just comment, which represents these URLS in this part
  are handle document manipulation. So on so forth for next three parts.
 
@@ -269,10 +271,9 @@ I listed all URLs I design in MarkUp below.
  ```
  'get    /api/doc':     'DocumentController.list',
  ```
- For this URL, get is restful API, /api/doc is url user enters in the browser,
- DocumentController.list is list method in DocumentController. In other words,
- when user enters ip:port/api/doc in browser, backend will find list function in
- DocumentController to do login operations. Get is Restful API type of list function.
+ For the code above, DocumentController.list is list method in DocumentController.
+ When user enters ip:port/api/doc in browser, backend will find list function in
+ DocumentController to do login operations.
 
  ```
  'get    /api/doc/:docid/version/:vid': 'VersionController.get',
@@ -303,7 +304,7 @@ If there have token in client-side, request will go to controller to execute cor
 operations, otherwise, user has to login first. If user logs in successfully, server will sent token to client-side
 , client-side will store token in browser or other user computer and then send request again to server, otherwise,
 user has to register and back to login. In client-side, it is different between usual authentication method and WaterLock,
-WaterLock method puts token in header, in HTTP requests, you could implement it(add token to header) by set perperty
+WaterLock method puts token in header, in HTTP requests, you could implement it(add token to header) by set property
 About how to set bar to check in server, I will explain it via code.  
 
 The code section below is part of authentication in backend, you could find it in MarkUP_WebSerivce/config/policies.
@@ -328,9 +329,6 @@ DocumentController: {
   list_user:['hasJsonWebToken'],
 },
 ```
-
-## Front-end Design
-
 
 ## Front-end Design
 I mentioned in previous section, android device is viewed as view part in MVC framework,
@@ -384,15 +382,14 @@ and automatically calls doInBackground method with the parameters passed.
 * onPostExecute: This method is called after doInBackground method completes processing. Result
 form doInBackground is passed to this method.
 * onPreExecute: This method is called before doInBackground method is called.
-* onPrograssUpdate: This method is invoke by calling publish progress anytime from doInBackground
+* onProgressUpdate: This method is invoke by calling publish progress anytime from doInBackground
 call this method.
-
 
 
 #### SharedPreference
 
 Actually, android provides several options for user to save persistent application data.
-* SharedProference - store private primitive data in key-value pairs
+* SharedPreference - store private primitive data in key-value pairs
 * Internal Storage - store private data on the device memory
 * External Storage - store public data on the shared external storage
 * SQLite Database - store structured data in a private database
@@ -405,12 +402,84 @@ only needs to save small collection of key-values. For more details, please acce
 #### MarkDown libraries
 
 The important part in this app is converting unstructured text into formatted text. I used
-MarkDownView library to implement this functionality.This library is very well and easy to learn, let's see what's MarkDownView. MarkdownView (Markdown For Android) is an Android library that helps you display Markdown text or files (local/remote) as formmated HTML, and style the output using CSS.
+MarkDownView library to implement this functionality.This library is very well and easy to learn, let's see what's MarkDownView. MarkdownView (Markdown For Android) is an Android library that helps you display Markdown text or files (local/remote) as formatted HTML, and style the output using CSS.
 The MarkdownView itself extends Android webview and adds the necessary logic to parse Markdown (using MarkdownJ) and display the output HTML on the view.  
+
+Syntax I implemented are below:
+
+* header
+* italic and bold
+* indent
+* list
+
+Specific syntax introduction could be accessed in <https://daringfireball.net/projects/markdown/syntax>
 
 ## Achievement
 
-## Challenge
+Home page
+<center>![](./home.png)<center>
+
+<center> figure 7<center>
+
+Document for reader and user. After you click skip button in Home page, you will go to this page.
+<center>![](./doc.png)<center>
+
+<center> figure 8<center>
+
+<center>![](./versions.png)<center>
+
+<center> figure 9<center>
+
+<center>![](./register.png)<center>
+
+<center> figure 10<center>
+After you click login button in Home page, you will go to this login page.
+<center>![](./login.png)<center>
+
+<center> figure 11<center>
+
+<center>![](./profile.png)<center>
+
+<center> figure 11<center>
+
+<center>![](./doc_user.png)<center>
+
+<center> figure 12<center>
+
+<center>![](./version_user.png)<center>
+
+<center> figure 13<center>
+
+<center>![](./user.png)<center>
+
+<center> figure 14<center>
+
+<center>![](./markdown.png)<center>
+
+<center> figure 15<center>
+
+<center>![](./unformatted_.jpg)<center> <center>![](./preview_.jpg)<center>
+
+<center> figure 16<center>
+
+
 
 ## Work in the future
+
+* Add multi-user type to management raw data, such as Administrator and owner
+* IIT based user authentication
+* User metrics tracking and reporting
+* Export PDF and ePub document format
+* Do better UI
+* Integrating MarkUp with other components together
+
 ## Conclusion
+
+During developing MarkUp application, I met various problems. Most of problems I met were
+not so difficult to solve, like override format of MarkDown syntax, authentication problem and
+android AsyncTask utilization. I solved them via google online and ask professor. The most impressive
+problem I met is multi-user synchronous editing capabilities. This problem took me a few days to
+come up with solution. Actually, I didn't implement that multi-user could edit same document at the same time, but I implemented this functionality in user view. What I did is that let user save the document they want to
+edit to their own profile. For one document multi-user is editing, it seems that multi-user edit same one, however, they are editing different documents that have same content.
+
+I implemented most of requirements and functionality of this project. By developing this application,I really learned a lot. This project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and is able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a product in market.
