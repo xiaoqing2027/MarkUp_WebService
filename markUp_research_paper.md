@@ -11,20 +11,18 @@ Project Factor is divided by three parts:
 
 ## Introduction
 
-For project Convert and project Window Pane, they convert video or audio( such as a speech) into text with timestamp using machine translator, in other words, convert vocal speech into unformatted text using libraries. Project MarkUp is to handle those unstructured text. About project Convert and project Window Pane, please refer to other teammates' research paper. Now let's focus on my project - MarkUp.
+For project Convert and project Window Pane, they convert video or audio( such as a speech) into text with timestamp using machine translator. Project MarkUp is responsible for handling those unstructured text. About project Convert and project Window Pane, please refer to other teammates' research paper. Now let's focus on my project - MarkUp.
 
-MarkUp allows a user to enter a drag and drop application and mark unstructured text via a simple GUI interface.
-
-The Goal of MarkUp:
+MarkUp is an Android application, which allows a user to enter a drag and drop application and mark unstructured text via a simple GUI interface. The Goal of MarkUp:
 
 * Convert unformatted text into formatted text
 * Build user Content Management System
-* Formatted text can be rendered into a DocBook or HTMLBook format which allows for export to PDF, HTML and even ePub
+* Formatted text can be rendered into a DocBook or HTMLBook which allows for export to PDF, HTML and even ePub
 * PDF and HTML formats can be printed too - making read -time book
 
 ## Functionalities of MarkUp
 
-As an independent study for a course in one semester, consider that I only have three months to do this project, I picked up two goals of MarkUp to implement. Functionalities of MarkUp I have implemented is following:
+ Functionalities of MarkUp I have implemented is following:
 
 * User authentication
 * Account management
@@ -37,8 +35,9 @@ Next, I will explain how I implement MarkUp project. Hope students who want to g
 
 ## Installation
 
-### Software Install
-For software part, there have two parts, backend and front end. So I will introduce installation from these two aspects.
+### Software Tools
+There have two parts for software installation, backend and front end. Sails.js installation is prepare for backend. Android Studio installation is for front-end. I will explain them respectively.
+
 ##### Sails.js Version
 0.12.0
 ##### Sails.js Installation
@@ -69,7 +68,7 @@ You can go to <http://developer.android.com/sdk/installing/index.html> see more 
 
 ##### Android Studio Configuration
 
-This is my build.gradle file. There have compileSdk, buildTools and dependencies information.
+This is my build.gradle file that includes configuration information, such as compileSdk, buildTools and dependencies information.
 
 ```
 apply plugin: 'com.android.application'
@@ -102,76 +101,67 @@ dependencies {
 ```
 
 ### Hardware Tools
-
-You can user any android platform version higher than android 4.0 API 15. I use Nexus 7 API 22.
+I use Nexus 7 API 22 (emulator in android studio). You could use any android platform version higher than android 4.0 API 15.
 
 ### Other Tools - Postman
 I always use Postman to debug backend, which takes less time than debug using android studio emulator or android device.
 
-##### Install Postman
+##### Postman installation
 Postman now offers a Mac App. Unlike the Chrome app, the Mac app is packaged with add-ons that make request capturing and cookie handling seamless.
 
 To install go to <https://www.getpostman.com/apps>, and click 'Get Mac App'.The download should take a few minutes, depending on your internet connection. Once you've downloaded the app, you can install and launch Postman like any other Mac app.
 
 ## Run MarkUp application
 
- After finishing installation, you could git pull MarkUp project form my github account. Before you run MarkUp , there have two thing to modify. Firstly, you open bash in your computer, then input ifconfig to find inet address. Secondly, you should find local.js via path MarkUP_WebSerivce/webservice/config, replace host by new inet address. Thirdly, open your android studio, then find Strings.xml via path ./app/res/values, you also need to replace <string name="ip_address">http://old_inet_address:1337</string> by new inet address.
+After finishing installation, you could git pull MarkUp project form my github account. Before you run MarkUp , there have two thing to modify. Firstly, you open bash in your computer, then input ifconfig to find inet address. Secondly, you should find local.js via path MarkUP_WebSerivce/webservice/config, replace host by new inet address. Thirdly, open your android studio, then find Strings.xml via path ./app/res/values, you also need to replace <string name="ip_address">http://old_inet_address:1337</string> by new inet address.
 
 
 ## Architecture of MarkUp
-After gathering information or requirements of MarkUp and understand MarkUp, I figured out Functionality of MarkUp and main service of MarkUp. Architecture of MarkUp is showed in figure 1:
+
+Architecture of MarkUp is showed in figure 1:
 
 ![](./architec.png)
 
 <center> figure 1<center>
 
 
-Raw data from Speech in above graph is unstructured text that is converted from video or audio using machine translator. Web Service is serve-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four services:
+Raw data from Speech in figure 1 is unstructured text that is converted from video or audio using machine translator. Web Service is server-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four services:
 
 * Authentication
-* Restful service
-* File convert service
-* Android Device
-
-I will simply explain each service next.
 
 Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
 
-  * Authentication
+* RESTful service
+REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service. A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.
 
-  Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users' information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.
+* File Convert Service
+File Convert Service is to convert markdown format to other document format, such as PDF, ePub, by using some libraries(pandoc).
 
-  * RESTful service
-  REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service. A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.
+* Android Device
 
-  * File Convert Service
-  File Convert Service is to covert markdown format to other document format, such as PDF, ePub, by using some libraries(pandoc).
-
-  * Android Device
-
-  Android Device is serve as an GUI interface. After server processed data, android device is used to render or display data in a great UI.
+Android Device is serve as an GUI interface. After server processed data, android device is used to render or display data in a great UI.
 
 ## Flow chart of MarkUp
 
-According to MarkUp Functionalities I implemented, I design a flow chart below to show MarkUp app clearly.
+According to MarkUp Functionalities I implemented, I design a flow chart below so that you are able to understand MarkUp app clearly.
 
 ![](./Flow_chart.png)
 
 <center> figure 2<center>
 
-Before introduce flow-chart above, let's assume that we are using IIT blackboard online video database now. For every class video, we convert speech into text, then those unstructured text translated by machine translator is put in database. Here, I defined every video text as document. In MarkUp, my idea is to let user edit unstructured text to become user own modified document. So let's call those documents translated from machine translator as original version of document, lets's call those document modified by users as modified version of document. If one video document is modified by Multi-users, these users create many versions of this document. So one document may have lots of versions.
+Before introduce flow-chart above, let's assume that we are using IIT blackboard online video database now. Other subproject will convert each class speech into text, then those unstructured text translated by machine translator is put in database. Here, I defined every class text as a document. For users(student) who use MarkUp, he can edit document(unstructured text) to be user own modified document. So let's call those documents translated from machine translator as original version of document. Those documents modified by users are different versions of document. If one document is modified by multi-users, every user may create one or more versions of the document, so one document may have lots of versions.
 
+As figure 2 shows, there have three user types, Admin, User and Reader.
 
-For every  As above flow-chart graph shows, there have three user type, Admin, User and Reader.
+Admin is responsible for manipulating database that stores unstructured/raw data. Let's use IIT blackboard online video as example again, after machine translator finish translating, admin has to check if there have new documents and then updated database by adding new translated documents into the database. Maybe, in the future, Factor project can add new document into database automatically without admin.
 
-Admin is in charge of manipulating database that store unstructured data, in other words, admin is to add document into database. In IIT blackboard online video, after machine translator finish translating, admin has to check if there have new document and then adds new translated documents into the database that stores unstructured data. Maybe we can implement functionality to add new document into database automatically. In flow-chart, you can see, admin is in charge of managing document. Admin can do:
+Things Admin can do:
 
 * Admin can add new documents to database
 * Admin has right to decide if new documents could be put in database
 * Admin can update/delete documents in database
 
-In IIT example, user is student. User needs to register and login MarkUp app to enter MarkUp
-app. Things Users could do in MarkUp app are in below:
+Things Users could do:
 * User can access all documents and all shared versions in database
 * User can edit any version they want to  
 * User can create new version by saving edit exist versions of document
@@ -179,23 +169,25 @@ app. Things Users could do in MarkUp app are in below:
 * User can share/unshare their own versions in their profiles
 * User can delete their own versions in their profiles
 
-Shared versions are versions that users shared their own versions of documents in their profile. After user shares their own version for one document, all readers and other users can access this shared version of this document. If user doesn't share their own version of one document, all readers and other users cannot access your unshared version of one document. One more thing, in model design, all versions of document state is unshared by default.
+Shared versions are versions that users shared their own versions of documents so that all readers and other users can access their shared version of documents. If user doesn't share their own version of one document, all readers and other users(except himself) cannot access your unshared version of one document. One more thing, in model design, all versions of document state is unshared by default.
 
-For readers, reader only can access all document, their original version of document and their shared version of document. In addition, readers can read and edit versions of documents. However, readers cannot save versions of documents that they edit unless they register an account and login. Readers could do:
+For readers, reader can access all documents, original version of documents and shared version of document. In addition, readers also can read and edit versions of documents. However, readers cannot save versions of documents they edit unless they register an account and logged in.
+Things readers could do:
 * Readers can access all documents and all shared versions in database
 * Reader can edit any versions of documents they want to, but cannot save versions they edit
 
 ## Backend Design
 
-After discussing MarkUp architecture and whole flow-chart, now let's see how to implement those functionality of different user-type.
+After discussing MarkUp architecture and flow-chart, hope you can understand what I want to do. Now let's see how to implement those functionalities I mentioned above.
 
-I used sails.js as web framework in MarkUp backend. It is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. But in his project, I used android device to be my view part. Here, I will introduce models and controller, explain android part in front-end section.
+I chose sails.js as web framework, which is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. About sails.js, you could access its website to learn how to use sails.js. Compared with usual MVC pattern, MVC pattern doesn't include view in sails.js, therefore, android device/emulator play a role of view.
+In this section, I will explain models and controller respectively, explain android part in front-end section.
 
 #### Model Design
 
 According to explanation above,it is easy to know that, at least, there should
 have a model user and a model document in content management system because it is user
-to manipulate data(document). In addition, I also designed a version model. The reason I did this is to solve the problem that Multi-user could edit same document in the same time in another way. At the same time, I also implement version control functionality using different timestamp in the view of user.
+to manipulate data(document). In addition, I also designed a version model.
 In order to describe model and their relationships clearly, I used E-R diagram to show attributes of models and relationship between different model.
 
 An ER model is composed of entity types and specifies relationships that can exist between instances of those entity types. ER model is an abstract data model that defines a data or information structure that can be implemented in a database, typically a relational database. Rectangle represents entity, isometric square represents relation between models.
@@ -211,23 +203,23 @@ As figure 3 shows, there have three models, document, version and user. Associat
 * User : Version = 1 : many
 * User : Document = many : many
 
-In addition to these three basic model, there is one more model, auth. Auth is to check if authorized user is logged or use type is user or reader. E-R diagram is showed below.
+In addition to these three basic models, there is one more model, auth. Auth is designed to check if authorized user is logged. Auth E-R diagram is showed below.
 
 <center>![](./auth.png)<center>
-<center> figure 4<center>
 
-For model code in MarkUp, you can find corresponding code in path  MarkUP_WebSerivce/webservice/api/models.
+<center> figure 4 <center>
 
+If you want to know more details, you are able to find it via path MarkUP_WebSerivce/webservice/api/models.
 
 #### Router Design
 
-According to functionalities of MarkUp, I designed URL that users enter in the browser. These URLs map to some specific physical file mapped to a directory on the web server which we call the virtual directory. When user sends requests, controller in backend processes corresponding requests via URL. The figure 5 shows the logic clearly.
+According to functionalities of MarkUp, I designed URLs that users can enter in the browser. These URLs map to some specific physical file mapped to a directory on the web server which we call the virtual directory. When user sends requests, controller in backend processes corresponding requests via URL. The figure 5 shows the logic clearly.
 
 <center>![](./url.png)<center>
 
 <center> figure 5<center>
 
-I listed all URLs I design in MarkUp below.
+I listed all URLs in MarkUp below:
 
 ###### Document:
 ```
@@ -262,25 +254,22 @@ I listed all URLs I design in MarkUp below.
 'delete /api/:userid/docs/:docid/version/:vid': 'VersionController.delete_user',
  ```
 
- For routers above, I explain them in order that you can understand well.
- First part, document is just comment, which represents these URLS in this part
- are handle document manipulation. So on so forth for next three parts.
-
- Now, let me explain my URL, for example:
+ For routers above, I divided into five parts so that it is easy to let developers understand
+ quickly. Now, let me explain URLs above, for example:
 
  ```
  'get    /api/doc':     'DocumentController.list',
  ```
- For the code above, DocumentController.list is list method in DocumentController.
- When user enters ip:port/api/doc in browser, backend will find list function in
+ For the code above, when user enters ip:port/api/doc in browser, backend will find list function in
  DocumentController to do login operations.
 
  ```
  'get    /api/doc/:docid/version/:vid': 'VersionController.get',
  ```
- For this more complicated URL, in addition to /api/doc, there have :docid and :vid. :docid and :vid are parameters that are passed into get function in VersionController in order to do some logic operations.
+ Compared to previous one, this router is more complicated. There have two more parameters, :docid and :vid, which are passed into get function in VersionController in order to do some logic operations.
 
 #### Controller Design
+
 Controller is responsible for processing incoming requests, handling input, saving data and sending
 a response to send back to the client. In sails.js, web server
 will normally map incoming URL requests directly to files on the server. In controller class, processing
@@ -289,29 +278,21 @@ incoming requests will map corresponding RESTful API method to processing login 
 If you want to see controller code in MarkUp, you can find corresponding code in path  MarkUP_WebSerivce/webservice/api/controllers.
 
 #### Authentication
-For authentication, I used WaterLock to check if user log in or not. WaterLock users
-the req.session express object to hold various information about user. Specific implementation
-is in MarkUP_WebSerivce. Here, I just want to describe logic about how to implement authentication.
-Without authentication, after user sends request from browser, URL will map restful API method in corresponding controller,
-The way I add authentication functionality is that incoming requests from user have to be checked by WaterLock
-before incoming requests arrive at controller. The logic is showed in figure 6.
+
+There have many authentication methods, I chose WaterLock. The logic about how authentication works is showed in figure 5. Without authentication, after user sends request from browser, URL will map restful API method in corresponding controller, with authentication, incoming requests from user have to be checked by WaterLock
+before incoming requests arrive at controller.
 
 <center>![](./auth_logic.png)<center>
 
-<center> figure 5<center>
+<center> figure 6<center>
 
 If there have token in client-side, request will go to controller to execute corresponding
-operations, otherwise, user has to login first. If user logs in successfully, server will sent token to client-side
-, client-side will store token in browser or other user computer and then send request again to server, otherwise,
-user has to register and back to login. In client-side, it is different between usual authentication method and WaterLock,
-WaterLock method puts token in header, in HTTP requests, you could implement it(add token to header) by set property
-About how to set bar to check in server, I will explain it via code.  
+operations, otherwise, user has to login first. If user logs in successfully, server will sent token to client-side, client-side will store token in browser or other user computer and then send request again to server, otherwise,user has to register and back to login. In client-side, it is different between usual authentication method and WaterLock, WaterLock puts token in header. When user sends request via browser, token information is sent to server.
 
-The code section below is part of authentication in backend, you could find it in MarkUP_WebSerivce/config/policies.
-This section means, if you want to access post_user, put_user, delete_user, get_user and list_user methods in VersionController,
-you have to do authentication. It is same with DocumentController part.
+About how to implement this in project, I will explain it with code. The code section below is part of authentication in backend, you could find it in MarkUP_WebSerivce/config/policies.
+This section means, if you want to access post_user, put_user, delete_user, get_user and list_user methods in VersionController, you have to do authentication. It is same with DocumentController part.
 
-However, you can see, there are only part of methods in controllers to check if user logged in or not.
+However, there are only part of methods in controllers to check if user logged in or not.
 Why I don't set all methods in controllers to do authentication? Reason is simple, for reader, they can
 access parts of information in MarkUp without logging in.
 
@@ -332,8 +313,7 @@ DocumentController: {
 
 ## Front-end Design
 I mentioned in previous section, android device is viewed as view part in MVC framework,
-so android development means front-end development. In this section, I won't introduce so much about
-how to create layout and Activity
+so android development means front-end development.
 
 #### Layout and Activity
 
@@ -389,13 +369,14 @@ call this method.
 #### SharedPreference
 
 Actually, android provides several options for user to save persistent application data.
+
 * SharedPreference - store private primitive data in key-value pairs
 * Internal Storage - store private data on the device memory
 * External Storage - store public data on the shared external storage
 * SQLite Database - store structured data in a private database
 * Network Connection - Store data on the web with your own network server
 
-Considered this application specific needs, I choose sharedProference because MarkUp
+Considered this application specific needs, I choose sharedPreference because MarkUp
 only needs to save small collection of key-values. For more details, please access to
 <http://www.compiletimeerror.com/2015/02/android-shared-preferences-example-and-tutorial.html#.Vy0QpKMrJnY>
 
@@ -412,56 +393,94 @@ Syntax I implemented are below:
 * indent
 * list
 
-Specific syntax introduction could be accessed in <https://daringfireball.net/projects/markdown/syntax>
+Specific syntax introduction could be accessed in <https://daringfireball.net/projects/markdown/syntax>, or refer to figure 17 and figure 18.
 
 ## Achievement
 
-Home page
+_Home Page_
 <center>![](./home.png)<center>
 
 <center> figure 7<center>
 
-Document for reader and user. After you click skip button in Home page, you will go to this page.
+Any user type can access home page.
+
+_Document List_
 <center>![](./doc.png)<center>
 
 <center> figure 8<center>
 
+Document list is shared for every one. After you click skip button in Home page,
+you can arrive at this page.
+
+_Version List for every document_
 <center>![](./versions.png)<center>
 
 <center> figure 9<center>
 
+Version list is shared for every one. After you click one item in document list,
+you can arrive at this page.
+
+_Register_
 <center>![](./register.png)<center>
 
 <center> figure 10<center>
-After you click login button in Home page, you will go to this login page.
+After you click register button in Home page, you will go to this login page.
+
+_Login_
 <center>![](./login.png)<center>
 
 <center> figure 11<center>
+After you click login button in Home page, you will go to this login page.
 
+_Dropdown List_
 <center>![](./profile.png)<center>
-
-<center> figure 11<center>
-
-<center>![](./doc_user.png)<center>
 
 <center> figure 12<center>
 
-<center>![](./version_user.png)<center>
+User is able to access his own profile and intent to other pages.
+
+_Documents List in user profile_
+<center>![](./doc_user.png)<center>
 
 <center> figure 13<center>
 
-<center>![](./user.png)<center>
+Document list in user profile is only accessed by user themselves. After you click
+my profile button in dropdown list showed in figure 12, you can arrive at this page.
+
+_Version List in user profile_
+<center>![](./version_user.png)<center>
 
 <center> figure 14<center>
 
-<center>![](./markdown.png)<center>
+Version list in user profile is only accessed by user themselves. After you click one item in document list,
+you can arrive at this page.
+
+_User authority_
+<center>![](./user.png)<center>
 
 <center> figure 15<center>
 
-<center>![](./unformatted_.jpg)<center> <center>![](./preview_.jpg)<center>
+User can chose any options showed in figure 15. Clicking Details can jump to MarkDown editor page showed in figure 16. Clicking share/unshare can change version state, if version is at shared state currently, version state will become unshared state after clicking, green icon will become grey, if version is at unshared state currently, version state will become shared state after clicking, grey icon will become green. Clicking delete is able to deleter this version.
+
+_Unstructured Text_
+<center>![](./markdown.png)<center>
 
 <center> figure 16<center>
 
+This page is MarkDown editor. In this page, user is able to drag and drop buttons into text so that
+user can edit unstructured text.
+
+_MarkDown Preview without editing_
+<center>![](./unformatted_.jpg)<center>
+
+<center> figure 17<center>
+
+_MarkDown Preview with editing_
+
+<center>![](./preview_.jpg)<center>
+
+<center> figure 18<center>
+Compared figure 17 with figure 18, four syntaxes in MarkUp is easy to understand.
 
 
 ## Work in the future
@@ -482,4 +501,4 @@ problem I met is multi-user synchronous editing capabilities. This problem took 
 come up with solution. Actually, I didn't implement that multi-user could edit same document at the same time, but I implemented this functionality in user view. What I did is that let user save the document they want to
 edit to their own profile. For one document multi-user is editing, it seems that multi-user edit same one, however, they are editing different documents that have same content.
 
-I implemented most of requirements and functionality of this project. By developing this application,I really learned a lot. This project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and is able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a product in market.
+I implemented most of requirements and functionalities of this project. By developing this application, this project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and is able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a truly product so that it can be published in market.
