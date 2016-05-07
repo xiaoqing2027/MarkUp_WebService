@@ -1,5 +1,3 @@
-# <center> MarkUp Research Paper<center>
-
 ## Background
 
 MarkUp is one of subproject of Project Factor. Project Factor was initiated to build a suite of applications that would automatically generate text transcripts from IIT course videos using open-source software tools.
@@ -120,7 +118,7 @@ After finishing installation, you could git pull MarkUp project form my github a
 
 Architecture of MarkUp is showed in figure 1:
 
-![](./architec.png)
+<center><img src="./architec.png" width="400" height="400" /><center>
 
 <center> figure 1<center>
 
@@ -193,7 +191,8 @@ In order to describe model and their relationships clearly, I used E-R diagram t
 An ER model is composed of entity types and specifies relationships that can exist between instances of those entity types. ER model is an abstract data model that defines a data or information structure that can be implemented in a database, typically a relational database. Rectangle represents entity, isometric square represents relation between models.
 Ellipse represents attributes of model.
 
-<center>![](./e-r.png)<center>
+
+<center><img src="./e-r.png" width="400" height="400" /><center>
 
 <center> figure 3<center>
 
@@ -397,87 +396,99 @@ Specific syntax introduction could be accessed in <https://daringfireball.net/pr
 
 ## Achievement
 
-_Home Page_
-<center>![](./home.png)<center>
+__Home Page__
+
+<center><img src="./home.png" width="300" height="500" /><center>
 
 <center> figure 7<center>
 
 Any user type can access home page.
 
-_Document List_
-<center>![](./doc.png)<center>
+__Document List__
+
+<center><img src="./doc.png" width="300" height="500" /><center>
 
 <center> figure 8<center>
 
 Document list is shared for every one. After you click skip button in Home page,
 you can arrive at this page.
 
-_Version List for every document_
-<center>![](./versions.png)<center>
+__Version List for every document__
+
+<center><img src="./versions.png" width="300" height="500" /><center>
 
 <center> figure 9<center>
 
 Version list is shared for every one. After you click one item in document list,
 you can arrive at this page.
 
-_Register_
-<center>![](./register.png)<center>
+__Register__
+
+<center><img src="./register.png" width="300" height="500" /><center>
 
 <center> figure 10<center>
 After you click register button in Home page, you will go to this login page.
 
-_Login_
-<center>![](./login.png)<center>
+__Login__
+
+<center><img src="./login.png" width="300" height="500" /><center>
+
 
 <center> figure 11<center>
 After you click login button in Home page, you will go to this login page.
 
-_Dropdown List_
-<center>![](./profile.png)<center>
+__Dropdown List__
+
+<center><img src="./profile.png" width="300" height="500" /><center>
 
 <center> figure 12<center>
 
 User is able to access his own profile and intent to other pages.
 
-_Documents List in user profile_
-<center>![](./doc_user.png)<center>
+__Documents List in user profile__
+<center><img src="./doc_user.png" width="300" height="500" /><center>
 
 <center> figure 13<center>
 
-Document list in user profile is only accessed by user themselves. After you click
-my profile button in dropdown list showed in figure 12, you can arrive at this page.
 
-_Version List in user profile_
-<center>![](./version_user.png)<center>
+Document list in user profile is only accessed by user themselves. After you click my profile button in dropdown list showed in figure 12, you can arrive at this page.
+
+__Version List in user profile__
+
+<center><img src="./version_user.png" width="300" height="500" /><center>
 
 <center> figure 14<center>
 
 Version list in user profile is only accessed by user themselves. After you click one item in document list,
 you can arrive at this page.
 
-_User authority_
-<center>![](./user.png)<center>
+__User authority__
+
+<center><img src="./user.png" width="300" height="500" /><center>
 
 <center> figure 15<center>
 
 User can chose any options showed in figure 15. Clicking Details can jump to MarkDown editor page showed in figure 16. Clicking share/unshare can change version state, if version is at shared state currently, version state will become unshared state after clicking, green icon will become grey, if version is at unshared state currently, version state will become shared state after clicking, grey icon will become green. Clicking delete is able to deleter this version.
 
-_Unstructured Text_
-<center>![](./markdown.png)<center>
+__Unstructured Text__
+
+<center><img src="./markdown.png" width="300" height="500" /><center>
 
 <center> figure 16<center>
 
 This page is MarkDown editor. In this page, user is able to drag and drop buttons into text so that
 user can edit unstructured text.
 
-_MarkDown Preview without editing_
-<center>![](./unformatted_.jpg)<center>
+__MarkDown Preview without editing__
+
+<center><img src="./unformatted_.jpg" width="300" height="500" /><center>
 
 <center> figure 17<center>
 
-_MarkDown Preview with editing_
+__MarkDown Preview with editing__
 
-<center>![](./preview_.jpg)<center>
+
+<center><img src="./preview_.jpg" width="300" height="500" /><center>
 
 <center> figure 18<center>
 Compared figure 17 with figure 18, four syntaxes in MarkUp is easy to understand.
