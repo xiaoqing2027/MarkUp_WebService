@@ -118,7 +118,7 @@ After finishing installation, you could git pull MarkUp project form my github a
 
 Architecture of MarkUp is showed in figure 1:
 
-<center><img src="./architec.png" width="400" height="400" /><center>
+<center><img src="./architec.png" width="420" height="420" /><center>
 
 <center> figure 1<center>
 
@@ -143,7 +143,8 @@ Android Device is serve as an GUI interface. After server processed data, androi
 
 According to MarkUp Functionalities I implemented, I design a flow chart below so that you are able to understand MarkUp app clearly.
 
-![](./Flow_chart.png)
+
+<center><img src="./flowchart.png" width="620" height="420" /><center>
 
 <center> figure 2<center>
 
@@ -192,7 +193,7 @@ An ER model is composed of entity types and specifies relationships that can exi
 Ellipse represents attributes of model.
 
 
-<center><img src="./e-r.png" width="400" height="400" /><center>
+<center><img src="./e-r.png" width="520" height="420" /><center>
 
 <center> figure 3<center>
 
@@ -392,7 +393,7 @@ Syntax I implemented are below:
 * indent
 * list
 
-Specific syntax introduction could be accessed in <https://daringfireball.net/projects/markdown/syntax>, or refer to figure 17 and figure 18.
+Specific syntax introduction could be accessed in <https://daringfireball.net/projects/markdown/syntax>, or refer to figure 17.
 
 ## Achievement
 
@@ -451,7 +452,7 @@ __Documents List in user profile__
 <center> figure 13<center>
 
 
-Document list in user profile is only accessed by user themselves. After you click my profile button in dropdown list showed in figure 12, you can arrive at this page.
+Document list in user profile is only accessed by user themselves and only displays documents that user saved before. After you click my profile button in dropdown list showed in figure 12, you can arrive at this page.
 
 __Version List in user profile__
 
@@ -479,19 +480,15 @@ __Unstructured Text__
 This page is MarkDown editor. In this page, user is able to drag and drop buttons into text so that
 user can edit unstructured text.
 
-__MarkDown Preview without editing__
+__MarkDown Preview without editing and MarkDown Preview with editing__
 
-<center><img src="./unformatted_.jpg" width="300" height="500" /><center>
+<center><img src="./unformatted_.jpg" width="300" height="500" /> <img src="./preview_.jpg" width="300" height="500" /><center>
 
 <center> figure 17<center>
 
-__MarkDown Preview with editing__
 
 
-<center><img src="./preview_.jpg" width="300" height="500" /><center>
-
-<center> figure 18<center>
-Compared figure 17 with figure 18, four syntaxes in MarkUp is easy to understand.
+Compared with two screenshots in figure 17, four syntaxes in MarkUp is easy to understand.
 
 
 ## Work in the future
@@ -512,4 +509,4 @@ problem I met is multi-user synchronous editing capabilities. This problem took 
 come up with solution. Actually, I didn't implement that multi-user could edit same document at the same time, but I implemented this functionality in user view. What I did is that let user save the document they want to
 edit to their own profile. For one document multi-user is editing, it seems that multi-user edit same one, however, they are editing different documents that have same content.
 
-I implemented most of requirements and functionalities of this project. By developing this application, this project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and is able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a truly product so that it can be published in market.
+I implemented most of requirements and functionalities of this project. By developing this application, this project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and are able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a truly product so that it can be published in market.
