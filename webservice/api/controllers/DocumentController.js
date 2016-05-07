@@ -9,7 +9,7 @@ module.exports = {
   list: function(req, res, next) {
     console.log("list request called");
 		Document.find()
-    //.populate('versions')
+    .populate('versions')
     .exec(function(err, docs){
 			if(err) {
 				return next(err);
@@ -29,6 +29,7 @@ module.exports = {
 			if(err) {
 				return next(err);
 			}
+        console.log(docs);
 			return res.json(docs);
 		});
 	},
