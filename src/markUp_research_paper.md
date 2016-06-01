@@ -59,7 +59,8 @@ Firstly, you go to <http://developer.android.com/sdk/index.html> to download And
 
 To install Android Studio on Windows, proceed as follows:
 * Launch the .exe file you downloaded.
-* Follow the setup wizard to install Android Studio and any necessary SDK tools. I used mac, installation is easy.
+* Follow the setup wizard to install Android Studio and any necessary SDK tools.
+
 On some Windows systems, the launcher script does not find where the JDK is installed. If you encounter this problem, you need to set an environment variable indicating the correct location. Select Start menu > Computer > System Properties > Advanced System Properties. Then open Advanced tab > Environment Variables and add a new system variable JAVA_HOME that points to your JDK folder, for example C:\Program Files\Java\jdk1.8.0_77.
 
 You can go to <http://developer.android.com/sdk/installing/index.html> see more android studio installation details.

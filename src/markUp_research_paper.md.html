@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>markUp_research_paper</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(56, 58, 66); overflow: auto; background-color: rgb(250, 250, 250); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(94, 97, 110); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 111, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(94, 97, 110); border-color: rgb(209, 209, 210); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(209, 209, 210); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(209, 209, 210); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(0, 0, 0); background-color: rgb(234, 234, 235); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(0, 0, 0); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(209, 209, 210) rgb(209, 209, 210) rgb(193, 193, 194); background-color: rgb(234, 234, 235); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #fafafa;
+  color: #383a42;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(56, 58, 66, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #383a42;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #526fff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #ededed;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #526fff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #9d9d9f;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #383a42;
+  background-color: #f2f2f2;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #383a42;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(255, 20, 20, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #383a42;
+}
+.comment {
+  color: #a0a1a7;
+  font-style: italic;
+}
+.comment .markup.link {
+  color: #a0a1a7;
+}
+.entity.name.type {
+  color: #c18401;
+}
+.entity.other.inherited-class {
+  color: #50a14f;
+}
+.keyword {
+  color: #a626a4;
+}
+.keyword.control {
+  color: #a626a4;
+}
+.keyword.operator {
+  color: #383a42;
+}
+.keyword.other.special-method {
+  color: #4078f2;
+}
+.keyword.other.unit {
+  color: #986801;
+}
+.storage {
+  color: #a626a4;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #a626a4;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #383a42;
+}
+.constant {
+  color: #986801;
+}
+.constant.variable {
+  color: #986801;
+}
+.constant.character.escape {
+  color: #0184bc;
+}
+.constant.numeric {
+  color: #986801;
+}
+.constant.other.color {
+  color: #0184bc;
+}
+.constant.other.symbol {
+  color: #0184bc;
+}
+.variable {
+  color: #e45649;
+}
+.variable.interpolation {
+  color: #ca1243;
+}
+.variable.parameter {
+  color: #383a42;
+}
+.string {
+  color: #50a14f;
+}
+.string.regexp {
+  color: #0184bc;
+}
+.string.regexp .source.ruby.embedded {
+  color: #c18401;
+}
+.string.other.link {
+  color: #e45649;
+}
+.punctuation.definition.comment {
+  color: #a0a1a7;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #383a42;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #4078f2;
+}
+.punctuation.definition.bold {
+  color: #c18401;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #ca1243;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #383a42;
+}
+.support.class {
+  color: #c18401;
+}
+.support.type {
+  color: #0184bc;
+}
+.support.function {
+  color: #0184bc;
+}
+.support.function.any-method {
+  color: #4078f2;
+}
+.entity.name.function {
+  color: #4078f2;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #c18401;
+}
+.entity.name.section {
+  color: #4078f2;
+}
+.entity.name.tag {
+  color: #e45649;
+}
+.entity.other.attribute-name {
+  color: #986801;
+}
+.entity.other.attribute-name.id {
+  color: #4078f2;
+}
+.meta.class {
+  color: #c18401;
+}
+.meta.class.body {
+  color: #383a42;
+}
+.meta.method-call,
+.meta.method {
+  color: #383a42;
+}
+.meta.definition.variable {
+  color: #e45649;
+}
+.meta.link {
+  color: #986801;
+}
+.meta.require {
+  color: #4078f2;
+}
+.meta.selector {
+  color: #a626a4;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #383a42;
+}
+.meta.tag {
+  color: #383a42;
+}
+.underline {
+  text-decoration: underline;
+}
+.none {
+  color: #383a42;
+}
+.invalid.deprecated {
+  color: #000000 !important;
+  background-color: #f2a60d !important;
+}
+.invalid.illegal {
+  color: #ffffff !important;
+  background-color: #ff1414 !important;
+}
+.markup.bold {
+  color: #986801;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #a626a4;
+}
+.markup.deleted {
+  color: #e45649;
+}
+.markup.italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.markup.heading {
+  color: #e45649;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #4078f2;
+}
+.markup.link {
+  color: #a626a4;
+}
+.markup.inserted {
+  color: #50a14f;
+}
+.markup.quote {
+  color: #986801;
+}
+.markup.raw {
+  color: #50a14f;
+}
+.source.cs .keyword.operator {
+  color: #a626a4;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #696c77;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #383a42;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .link .entity {
+  color: #4078f2;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e45649;
+}
+.source.java .storage.modifier.import {
+  color: #c18401;
+}
+.source.java .storage.type {
+  color: #c18401;
+}
+.source.java-properties .meta.key-pair {
+  color: #e45649;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #383a42;
+}
+.source.js .keyword.operator {
+  color: #0184bc;
+}
+.source.js .keyword.operator.delete,
+.source.js .keyword.operator.in,
+.source.js .keyword.operator.of,
+.source.js .keyword.operator.instanceof,
+.source.js .keyword.operator.new,
+.source.js .keyword.operator.typeof,
+.source.js .keyword.operator.void {
+  color: #a626a4;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e45649;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e45649;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #50a14f;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #0184bc;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #a626a4;
+}
+.source.python .variable.parameter {
+  color: #986801;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h2 id="background">Background</h2>
+<p>MarkUp is one of subproject of Project Factor. Project Factor was initiated to build a suite of applications that would automatically generate text transcripts from IIT course videos using open-source software tools.
+Project Factor is divided by three parts:</p>
+<ul>
+<li>Project Convert</li>
+<li>Project Window Pane</li>
+<li>Project MarkUp</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>For project Convert and project Window Pane, they convert video or audio( such as a speech) into text with timestamp using machine translator. Project MarkUp is responsible for handling those unstructured text. About project Convert and project Window Pane, please refer to other teammates&#39; research paper. Now let&#39;s focus on my project - MarkUp.</p>
+<p>MarkUp is an Android application, which allows a user to enter a drag and drop application and mark unstructured text via a simple GUI interface. The Goal of MarkUp:</p>
+<ul>
+<li>Convert unformatted text into formatted text</li>
+<li>Build user Content Management System</li>
+<li>Formatted text can be rendered into a DocBook or HTMLBook which allows for export to PDF, HTML and even ePub</li>
+<li>PDF and HTML formats can be printed too - making read -time book</li>
+</ul>
+<h2 id="functionalities-of-markup">Functionalities of MarkUp</h2>
+<p> Functionalities of MarkUp I have implemented is following:</p>
+<ul>
+<li>User authentication</li>
+<li>Account management</li>
+<li>Multi-user synchronous editing capabilities</li>
+<li>All functions performed using Android touch based interface targeting tablets or phone</li>
+<li>All user markup saved and referenced from a common database</li>
+<li>Single user interface which will add, remove and share functionality based in user type(readers, user)</li>
+</ul>
+<p>Next, I will explain how I implement MarkUp project. Hope students who want to go on my work pick up my work easily.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="software-tools">Software Tools</h3>
+<p>There have two parts for software installation, backend and front end. Sails.js installation is prepare for backend. Android Studio installation is for front-end. I will explain them respectively.</p>
+<h5 id="sails-js-version">Sails.js Version</h5>
+<p>0.12.0</p>
+<h5 id="sails-js-installation">Sails.js Installation</h5>
+<p>To install the latest stable release with the command-line tool:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sudo&nbsp;npm&nbsp;-g&nbsp;install&nbsp;sails</span></span></span></div></pre><p>On Windows (or Mac OS with Homebrew), you don&#39;t need sudo:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>npm&nbsp;-g&nbsp;install&nbsp;sails</span></span></span></div></pre><p>You may see some npm WARN deprecated messages when installing Sails. These can be safely ignored. They don’t come from Sails itself, but rather from some packages that Sails relies on--packages which themselves rely on some older modules. The Sails team is committed to keeping the framework secure and stable, and sometimes that (counter-intuitively) requires using some older versions of packages. See this thread for more info about the warnings, and this one for a discussion about updating dependencies in general.</p>
+<p>You can go to <a href="http://sailsjs.org/get-started">http://sailsjs.org/get-started</a> see more details.</p>
+<h5 id="javac-version-version">Javac -version Version</h5>
+<p>1.6.0_65</p>
+<h5 id="android-studio-installation">Android Studio Installation</h5>
+<p>Firstly, you go to <a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a> to download Android Studio, then While the Android Studio download completes, verify which version of the JDK you have: open a command line and type javac -version. If the JDK is not available or the version is lower than 1.8, download the Java SE Development Kit 8.</p>
+<p>To install Android Studio on Windows, proceed as follows:</p>
+<ul>
+<li>Launch the .exe file you downloaded.</li>
+<li>Follow the setup wizard to install Android Studio and any necessary SDK tools.</li>
+</ul>
+<p>On some Windows systems, the launcher script does not find where the JDK is installed. If you encounter this problem, you need to set an environment variable indicating the correct location. Select Start menu &gt; Computer &gt; System Properties &gt; Advanced System Properties. Then open Advanced tab &gt; Environment Variables and add a new system variable JAVA_HOME that points to your JDK folder, for example C:\Program Files\Java\jdk1.8.0_77.</p>
+<p>You can go to <a href="http://developer.android.com/sdk/installing/index.html">http://developer.android.com/sdk/installing/index.html</a> see more android studio installation details.</p>
+<h5 id="android-studio-configuration">Android Studio Configuration</h5>
+<p>This is my build.gradle file that includes configuration information, such as compileSdk, buildTools and dependencies information.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>apply&nbsp;plugin:&nbsp;&#39;com.android.application&#39;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>android&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>compileSdkVersion&nbsp;23</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;buildToolsVersion&nbsp;&quot;23.0.1&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;useLibrary&nbsp;&#39;org.apache.http.legacy&#39;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>defaultConfig&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>applicationId&nbsp;&quot;com.example.miaodonghan.markupproject_01&quot;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minSdkVersion&nbsp;15</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;targetSdkVersion&nbsp;23</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;versionCode&nbsp;1</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;versionName&nbsp;&quot;1.0&quot;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;buildTypes&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>release&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>minifyEnabled&nbsp;false</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proguardFiles&nbsp;getDefaultProguardFile(&#39;proguard-android.txt&#39;),&nbsp;&#39;proguard-rules.pro&#39;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>dependencies&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>compile&nbsp;fileTree(dir:&nbsp;&#39;libs&#39;,&nbsp;include:&nbsp;[&#39;*.jar&#39;])</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;testCompile&nbsp;&#39;junit:junit:4.12&#39;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;compile&nbsp;&#39;com.android.support:appcompat-v7:23.1.1&#39;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;compile&nbsp;&#39;us.feras.mdv:markdownview:1.1.0&#39;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><h3 id="hardware-tools">Hardware Tools</h3>
+<p>I use Nexus 7 API 22 (emulator in android studio). You could use any android platform version higher than android 4.0 API 15.</p>
+<h3 id="other-tools-postman">Other Tools - Postman</h3>
+<p>I always use Postman to debug backend, which takes less time than debug using android studio emulator or android device.</p>
+<h5 id="postman-installation">Postman installation</h5>
+<p>Postman now offers a Mac App. Unlike the Chrome app, the Mac app is packaged with add-ons that make request capturing and cookie handling seamless.</p>
+<p>To install go to <a href="https://www.getpostman.com/apps">https://www.getpostman.com/apps</a>, and click &#39;Get Mac App&#39;.The download should take a few minutes, depending on your internet connection. Once you&#39;ve downloaded the app, you can install and launch Postman like any other Mac app.</p>
+<h2 id="run-markup-application">Run MarkUp application</h2>
+<p>After finishing installation, you could git pull MarkUp project form my github account. Before you run MarkUp , there have two thing to modify. Firstly, you open bash in your computer, then input ifconfig to find inet address. Secondly, you should find local.js via path MarkUP_WebSerivce/webservice/config, replace host by new inet address. Thirdly, open your android studio, then find Strings.xml via path ./app/res/values, you also need to replace <string name="ip_address"><a href="http://old_inet_address:1337">http://old_inet_address:1337</a></string> by new inet address.</p>
+<h2 id="architecture-of-markup">Architecture of MarkUp</h2>
+<p>Architecture of MarkUp is showed in figure 1:</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/architec.png" width="420" height="420"><center></center></center></p>
+<p><center> figure 1<center></center></center></p>
+<p>Raw data from Speech in figure 1 is unstructured text that is converted from video or audio using machine translator. Web Service is server-side, which aims at storing data and handling logic relationships between models. MarkUp web service mains includes four services:</p>
+<ul>
+<li>Authentication</li>
+</ul>
+<p>Authentication is a process in which the credentials provided are compared to those on file in a database of authorized users&#39; information on a local operating system or within an authentication server. If the credentials match, the process is completed and the user is granted authorization for access.</p>
+<ul>
+<li><p>RESTful service
+REST stands for Representational State Transfer, which is an architecture style for networked hypermedia applications. It is primarily used to build Web service that are lightweight, maintainable and scalable. A service based on REST is called a RESTful service. A restful API is an application program interface that uses HTTP requests to GET,PUT,POST and DELETE data.</p>
+</li>
+<li><p>File Convert Service
+File Convert Service is to convert markdown format to other document format, such as PDF, ePub, by using some libraries(pandoc).</p>
+</li>
+<li><p>Android Device</p>
+</li>
+</ul>
+<p>Android Device is serve as an GUI interface. After server processed data, android device is used to render or display data in a great UI.</p>
+<h2 id="flow-chart-of-markup">Flow chart of MarkUp</h2>
+<p>According to MarkUp Functionalities I implemented, I design a flow chart below so that you are able to understand MarkUp app clearly.</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/flowchart.png" width="620" height="420"><center></center></center></p>
+<p><center> figure 2<center></center></center></p>
+<p>Before introduce flow-chart above, let&#39;s assume that we are using IIT blackboard online video database now. Other subproject will convert each class speech into text, then those unstructured text translated by machine translator is put in database. Here, I defined every class text as a document. For users(student) who use MarkUp, he can edit document(unstructured text) to be user own modified document. So let&#39;s call those documents translated from machine translator as original version of document. Those documents modified by users are different versions of document. If one document is modified by multi-users, every user may create one or more versions of the document, so one document may have lots of versions.</p>
+<p>As figure 2 shows, there have three user types, Admin, User and Reader.</p>
+<p>Admin is responsible for manipulating database that stores unstructured/raw data. Let&#39;s use IIT blackboard online video as example again, after machine translator finish translating, admin has to check if there have new documents and then updated database by adding new translated documents into the database. Maybe, in the future, Factor project can add new document into database automatically without admin.</p>
+<p>Things Admin can do:</p>
+<ul>
+<li>Admin can add new documents to database</li>
+<li>Admin has right to decide if new documents could be put in database</li>
+<li>Admin can update/delete documents in database</li>
+</ul>
+<p>Things Users could do:</p>
+<ul>
+<li>User can access all documents and all shared versions in database</li>
+<li>User can edit any version they want to  </li>
+<li>User can create new version by saving edit exist versions of document</li>
+<li>User can access his own documents and all shared versions in his profile.</li>
+<li>User can share/unshare their own versions in their profiles</li>
+<li>User can delete their own versions in their profiles</li>
+</ul>
+<p>Shared versions are versions that users shared their own versions of documents so that all readers and other users can access their shared version of documents. If user doesn&#39;t share their own version of one document, all readers and other users(except himself) cannot access your unshared version of one document. One more thing, in model design, all versions of document state is unshared by default.</p>
+<p>For readers, reader can access all documents, original version of documents and shared version of document. In addition, readers also can read and edit versions of documents. However, readers cannot save versions of documents they edit unless they register an account and logged in.
+Things readers could do:</p>
+<ul>
+<li>Readers can access all documents and all shared versions in database</li>
+<li>Reader can edit any versions of documents they want to, but cannot save versions they edit</li>
+</ul>
+<h2 id="backend-design">Backend Design</h2>
+<p>After discussing MarkUp architecture and flow-chart, hope you can understand what I want to do. Now let&#39;s see how to implement those functionalities I mentioned above.</p>
+<p>I chose sails.js as web framework, which is designed to emulate the familiar MVC pattern of frameworks like Ruby on Rails. About sails.js, you could access its website to learn how to use sails.js. Compared with usual MVC pattern, MVC pattern doesn&#39;t include view in sails.js, therefore, android device/emulator play a role of view.
+In this section, I will explain models and controller respectively, explain android part in front-end section.</p>
+<h4 id="model-design">Model Design</h4>
+<p>According to explanation above,it is easy to know that, at least, there should
+have a model user and a model document in content management system because it is user
+to manipulate data(document). In addition, I also designed a version model.
+In order to describe model and their relationships clearly, I used E-R diagram to show attributes of models and relationship between different model.</p>
+<p>An ER model is composed of entity types and specifies relationships that can exist between instances of those entity types. ER model is an abstract data model that defines a data or information structure that can be implemented in a database, typically a relational database. Rectangle represents entity, isometric square represents relation between models.
+Ellipse represents attributes of model.</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/e-r.png" width="520" height="420"><center></center></center></p>
+<p><center> figure 3<center></center></center></p>
+<p>As figure 3 shows, there have three models, document, version and user. Association(relationship) between models is following:</p>
+<ul>
+<li>Document : Version = 1: many</li>
+<li>User : Version = 1 : many</li>
+<li>User : Document = many : many</li>
+</ul>
+<p>In addition to these three basic models, there is one more model, auth. Auth is designed to check if authorized user is logged. Auth E-R diagram is showed below.</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/auth.png" alt=""><center></center></center></p>
+<p><center> figure 4 <center></center></center></p>
+<p>If you want to know more details, you are able to find it via path MarkUP_WebSerivce/webservice/api/models.</p>
+<h4 id="router-design">Router Design</h4>
+<p>According to functionalities of MarkUp, I designed URLs that users can enter in the browser. These URLs map to some specific physical file mapped to a directory on the web server which we call the virtual directory. When user sends requests, controller in backend processes corresponding requests via URL. The figure 5 shows the logic clearly.</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/url.png" alt=""><center></center></center></p>
+<p><center> figure 5<center></center></center></p>
+<p>I listed all URLs in MarkUp below:</p>
+<h6 id="document-">Document:</h6>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/doc&#39;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;DocumentController.post&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/doc&#39;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;DocumentController.list&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;put&nbsp;&nbsp;&nbsp;&nbsp;/api/doc/:docid&#39;:&nbsp;&#39;DocumentController.put&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;delete&nbsp;/api/doc/:docid&#39;:&nbsp;&#39;DocumentController.delete&#39;,</span></span></span></div></pre><h6 id="version-">Version:</h6>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/doc/:docid/version&#39;:&nbsp;&#39;VersionController.list&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/doc/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.get&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/doc/:docid/version&#39;:&nbsp;&#39;VersionController.post&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;put&nbsp;&nbsp;&nbsp;&nbsp;/api/doc/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.put&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;delete&nbsp;/api/doc/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.delete&#39;,</span></span></span></div></pre><h6 id="user-authentication-">User Authentication:</h6>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/auth/login&#39;:&nbsp;&#39;AuthController.login&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/auth/logout&#39;:&nbsp;&#39;AuthController.logout&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/auth/register&#39;:&nbsp;&#39;AuthController.register&#39;,</span></span></span></div></pre><h6 id="user_document-">User_document:</h6>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/:userid/docs&#39;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;DocumentController.list_user&#39;,</span></span></span></div></pre><h6 id="user_version-">User_version:</h6>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/:userid/docs/:docid/version&#39;:&nbsp;&#39;VersionController.list_user&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/:userid/docs/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.get_user&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;post&nbsp;&nbsp;&nbsp;/api/:userid/docs/:docid/version&#39;:&nbsp;&#39;VersionController.post_user&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&#39;delete&nbsp;/api/:userid/docs/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.delete_user&#39;,</span></span></span></div></pre><p> For routers above, I divided into five parts so that it is easy to let developers understand
+ quickly. Now, let me explain URLs above, for example:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;</span><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/doc&#39;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;DocumentController.list&#39;,</span></span></span></div></pre><p> For the code above, when user enters ip:port/api/doc in browser, backend will find list function in
+ DocumentController to do login operations.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;</span><span class="meta paragraph text"><span>&#39;get&nbsp;&nbsp;&nbsp;&nbsp;/api/doc/:docid/version/:vid&#39;:&nbsp;&#39;VersionController.get&#39;,</span></span></span></div></pre><p> Compared to previous one, this router is more complicated. There have two more parameters, :docid and :vid, which are passed into get function in VersionController in order to do some logic operations.</p>
+<h4 id="controller-design">Controller Design</h4>
+<p>Controller is responsible for processing incoming requests, handling input, saving data and sending
+a response to send back to the client. In sails.js, web server
+will normally map incoming URL requests directly to files on the server. In controller class, processing
+incoming requests will map corresponding RESTful API method to processing login operations.</p>
+<p>If you want to see controller code in MarkUp, you can find corresponding code in path  MarkUP_WebSerivce/webservice/api/controllers.</p>
+<h4 id="authentication">Authentication</h4>
+<p>There have many authentication methods, I chose WaterLock. The logic about how authentication works is showed in figure 5. Without authentication, after user sends request from browser, URL will map restful API method in corresponding controller, with authentication, incoming requests from user have to be checked by WaterLock
+before incoming requests arrive at controller.</p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/auth_logic.png" alt=""><center></center></center></p>
+<p><center> figure 6<center></center></center></p>
+<p>If there have token in client-side, request will go to controller to execute corresponding
+operations, otherwise, user has to login first. If user logs in successfully, server will sent token to client-side, client-side will store token in browser or other user computer and then send request again to server, otherwise,user has to register and back to login. In client-side, it is different between usual authentication method and WaterLock, WaterLock puts token in header. When user sends request via browser, token information is sent to server.</p>
+<p>About how to implement this in project, I will explain it with code. The code section below is part of authentication in backend, you could find it in MarkUP_WebSerivce/config/policies.
+This section means, if you want to access post_user, put_user, delete_user, get_user and list_user methods in VersionController, you have to do authentication. It is same with DocumentController part.</p>
+<p>However, there are only part of methods in controllers to check if user logged in or not.
+Why I don&#39;t set all methods in controllers to do authentication? Reason is simple, for reader, they can
+access parts of information in MarkUp without logging in.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>VersionController:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>post_user:&nbsp;[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;put_user:[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;delete_user:&nbsp;[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;get_user:[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;list_user:[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>DocumentController:&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>get_user:[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;list_user:[&#39;hasJsonWebToken&#39;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>},</span></span></span></div></pre><h2 id="front-end-design">Front-end Design</h2>
+<p>I mentioned in previous section, android device is viewed as view part in MVC framework,
+so android development means front-end development.</p>
+<h4 id="layout-and-activity">Layout and Activity</h4>
+<p>When you make an Android Application, the first thing you will do is create an activity.
+These are where all the action happens, because they are where all action happens,
+because they are the screens that allow the user to interact with your app.</p>
+<p>Another incredibly important part of building an Android application is creating a layout that the users of the
+application interact with.Android Studio offers an advanced layout editor that allows you to drag-and-drop
+widgets into your layout and preview your layout while editing the XML.
+Within the layout editor, you can switch between the Text view, where you edit
+the XML file as text, and the Design view. Just click the appropriate tab at the
+bottom of the window to display the desired editor. If you want to know more, you
+could go to <a href="http://developer.android.com/sdk/installing/studio-layout.html">http://developer.android.com/sdk/installing/studio-layout.html</a>.</p>
+<p>Here, I won&#39;t say a lot of details about how to create an android application. If you have
+taken ITMD555, it is easy to understand MarkUp.</p>
+<h4 id="asynctask">AsyncTask</h4>
+<p>AsyncTask is an abstract class provided by Android which helps us to use UI thread properly.
+This class allows us to perform background operations and show its result on the UI thread
+without having to manipulate threads.</p>
+<p>Android implements single thread model and whenever an application is launched,
+a thread is created. Assuming we are doing network operation on a button click in our application.
+On button click a request would be made to the server and response will be awaited. Due to single
+thread model of android, till the time response is awaited our screen is non-responsive. So we should avoid
+performing long running operations on the UI thread. This includes
+file and network access. To overcome this, we can create new thread and implement run method
+to perform this network call, so UI remains responsive.</p>
+<p>But since Android follows single thread model and Android UI toolkit is not thread safe,
+so if there is a need to make some change to the UI based on the result of the operations
+performed, then this approach may lead some issues. So the android framework has given
+a very good patten which is enveloped into AsyncTask.</p>
+<p>In MarkUp, there is a need to communicate with the server and get data from it, so
+I used AsyncTask to perform many times long running operations on the UI thread, otherwise,
+user experience will be very bad. For every AsyncTask in MarkUp app, it will map route I designed.</p>
+<p>AsyncTask has four steps:</p>
+<ul>
+<li>doInBackground: Code performing long running operations goes in this method. when
+onclick method is executed in click of button, it calls execute method which accepts parameters
+and automatically calls doInBackground method with the parameters passed.</li>
+<li>onPostExecute: This method is called after doInBackground method completes processing. Result
+form doInBackground is passed to this method.</li>
+<li>onPreExecute: This method is called before doInBackground method is called.</li>
+<li>onProgressUpdate: This method is invoke by calling publish progress anytime from doInBackground
+call this method.</li>
+</ul>
+<h4 id="sharedpreference">SharedPreference</h4>
+<p>Actually, android provides several options for user to save persistent application data.</p>
+<ul>
+<li>SharedPreference - store private primitive data in key-value pairs</li>
+<li>Internal Storage - store private data on the device memory</li>
+<li>External Storage - store public data on the shared external storage</li>
+<li>SQLite Database - store structured data in a private database</li>
+<li>Network Connection - Store data on the web with your own network server</li>
+</ul>
+<p>Considered this application specific needs, I choose sharedPreference because MarkUp
+only needs to save small collection of key-values. For more details, please access to
+<a href="http://www.compiletimeerror.com/2015/02/android-shared-preferences-example-and-tutorial.html#.Vy0QpKMrJnY">http://www.compiletimeerror.com/2015/02/android-shared-preferences-example-and-tutorial.html#.Vy0QpKMrJnY</a></p>
+<h4 id="markdown-libraries">MarkDown libraries</h4>
+<p>The important part in this app is converting unstructured text into formatted text. I used
+MarkDownView library to implement this functionality.This library is very well and easy to learn, let&#39;s see what&#39;s MarkDownView. MarkdownView (Markdown For Android) is an Android library that helps you display Markdown text or files (local/remote) as formatted HTML, and style the output using CSS.
+The MarkdownView itself extends Android webview and adds the necessary logic to parse Markdown (using MarkdownJ) and display the output HTML on the view.  </p>
+<p>Syntax I implemented are below:</p>
+<ul>
+<li>header</li>
+<li>italic and bold</li>
+<li>indent</li>
+<li>list</li>
+</ul>
+<p>Specific syntax introduction could be accessed in <a href="https://daringfireball.net/projects/markdown/syntax">https://daringfireball.net/projects/markdown/syntax</a>, or refer to figure 17.</p>
+<h2 id="achievement">Achievement</h2>
+<p><strong>Home Page</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/home.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 7<center></center></center></p>
+<p>Any user type can access home page.</p>
+<p><strong>Document List</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/doc.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 8<center></center></center></p>
+<p>Document list is shared for every one. After you click skip button in Home page,
+you can arrive at this page.</p>
+<p><strong>Version List for every document</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/versions.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 9<center></center></center></p>
+<p>Version list is shared for every one. After you click one item in document list,
+you can arrive at this page.</p>
+<p><strong>Register</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/register.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 10<center>
+After you click register button in Home page, you will go to this login page.</center></center></p>
+<p><strong>Login</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/login.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 11<center>
+After you click login button in Home page, you will go to this login page.</center></center></p>
+<p><strong>Dropdown List</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/profile.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 12<center></center></center></p>
+<p>User is able to access his own profile and intent to other pages.</p>
+<p><strong>Documents List in user profile</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/doc_user.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 13<center></center></center></p>
+<p>Document list in user profile is only accessed by user themselves and only displays documents that user saved before. After you click my profile button in dropdown list showed in figure 12, you can arrive at this page.</p>
+<p><strong>Version List in user profile</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/version_user.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 14<center></center></center></p>
+<p>Version list in user profile is only accessed by user themselves. After you click one item in document list,
+you can arrive at this page.</p>
+<p><strong>User authority</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/user.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 15<center></center></center></p>
+<p>User can chose any options showed in figure 15. Clicking Details can jump to MarkDown editor page showed in figure 16. Clicking share/unshare can change version state, if version is at shared state currently, version state will become unshared state after clicking, green icon will become grey, if version is at unshared state currently, version state will become shared state after clicking, grey icon will become green. Clicking delete is able to deleter this version.</p>
+<p><strong>Unstructured Text</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/markdown.png" width="300" height="500"><center></center></center></p>
+<p><center> figure 16<center></center></center></p>
+<p>This page is MarkDown editor. In this page, user is able to drag and drop buttons into text so that
+user can edit unstructured text.</p>
+<p><strong>MarkDown Preview without editing and MarkDown Preview with editing</strong></p>
+<p><center><img src="/Users/miaodonghan/MarkUp_WebService/unformatted_.jpg" width="300" height="500"> <img src="/Users/miaodonghan/MarkUp_WebService/preview_.jpg" width="300" height="500"><center></center></center></p>
+<p><center> figure 17<center></center></center></p>
+<p>Compared with two screenshots in figure 17, four syntaxes in MarkUp is easy to understand.</p>
+<h2 id="work-in-the-future">Work in the future</h2>
+<ul>
+<li>Add multi-user type to management raw data, such as Administrator and owner</li>
+<li>IIT based user authentication</li>
+<li>User metrics tracking and reporting</li>
+<li>Export PDF and ePub document format</li>
+<li>Do better UI</li>
+<li>Integrating MarkUp with other components together</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>During developing MarkUp application, I met various problems. Most of problems I met were
+not so difficult to solve, like override format of MarkDown syntax, authentication problem and
+android AsyncTask utilization. I solved them via google online and ask professor. The most impressive
+problem I met is multi-user synchronous editing capabilities. This problem took me a few days to
+come up with solution. Actually, I didn&#39;t implement that multi-user could edit same document at the same time, but I implemented this functionality in user view. What I did is that let user save the document they want to
+edit to their own profile. For one document multi-user is editing, it seems that multi-user edit same one, however, they are editing different documents that have same content.</p>
+<p>I implemented most of requirements and functionalities of this project. By developing this application, this project not only practiced my technical skills in Android development, but also improved my independent study skills. Hope there have other students who are interested in this project and are able to continue my work. Finally, I am looking forward to integrating with other components of Factor project together, and let Factor project become a truly product so that it can be published in market.</p></body>
+</html>
